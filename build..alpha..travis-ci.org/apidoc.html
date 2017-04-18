@@ -1,0 +1,4418 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="http://github.com/uhop/stream-json"
+
+    >stream-json (v0.4.2)</a>
+</h1>
+<h4>stream-json is a SAX-inspired stream components with a minimal memory footprint to parse huge JSON files. Includes utilities to stream Django-like JSON database dumps.</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.stream-json">module stream-json</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.stream-json">
+            function <span class="apidocSignatureSpan"></span>stream-json
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.AltParser">
+            function <span class="apidocSignatureSpan">stream-json.</span>AltParser
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.Assembler">
+            function <span class="apidocSignatureSpan">stream-json.</span>Assembler
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.ClassicParser">
+            function <span class="apidocSignatureSpan">stream-json.</span>ClassicParser
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.Combo">
+            function <span class="apidocSignatureSpan">stream-json.</span>Combo
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.Emitter">
+            function <span class="apidocSignatureSpan">stream-json.</span>Emitter
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.Filter">
+            function <span class="apidocSignatureSpan">stream-json.</span>Filter
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.FilterObjects">
+            function <span class="apidocSignatureSpan">stream-json.</span>FilterObjects
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.Packer">
+            function <span class="apidocSignatureSpan">stream-json.</span>Packer
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.Parser">
+            function <span class="apidocSignatureSpan">stream-json.</span>Parser
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.Source">
+            function <span class="apidocSignatureSpan">stream-json.</span>Source
+            <span class="apidocSignatureSpan">(streams)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.StreamArray">
+            function <span class="apidocSignatureSpan">stream-json.</span>StreamArray
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.StreamFilteredArray">
+            function <span class="apidocSignatureSpan">stream-json.</span>StreamFilteredArray
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.StreamObject">
+            function <span class="apidocSignatureSpan">stream-json.</span>StreamObject
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.Streamer">
+            function <span class="apidocSignatureSpan">stream-json.</span>Streamer
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.toString">
+            function <span class="apidocSignatureSpan">stream-json.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">stream-json.</span>AltParser.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">stream-json.</span>Assembler.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">stream-json.</span>ClassicParser.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">stream-json.</span>Combo.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">stream-json.</span>Emitter.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">stream-json.</span>Filter.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">stream-json.</span>FilterObjects.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">stream-json.</span>Packer.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">stream-json.</span>Parser.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">stream-json.</span>StreamArray.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">stream-json.</span>StreamFilteredArray.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">stream-json.</span>StreamObject.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">stream-json.</span>Streamer.prototype</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.stream-json.AltParser">module stream-json.AltParser</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.AltParser.AltParser">
+            function <span class="apidocSignatureSpan">stream-json.</span>AltParser
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.AltParser.super_">
+            function <span class="apidocSignatureSpan">stream-json.AltParser.</span>super_
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.stream-json.AltParser.prototype">module stream-json.AltParser.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.AltParser.prototype._flush">
+            function <span class="apidocSignatureSpan">stream-json.AltParser.prototype.</span>_flush
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.AltParser.prototype._transform">
+            function <span class="apidocSignatureSpan">stream-json.AltParser.prototype.</span>_transform
+            <span class="apidocSignatureSpan">(chunk, encoding, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.stream-json.Assembler">module stream-json.Assembler</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.Assembler.Assembler">
+            function <span class="apidocSignatureSpan">stream-json.</span>Assembler
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.stream-json.Assembler.prototype">module stream-json.Assembler.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.Assembler.prototype._saveValue">
+            function <span class="apidocSignatureSpan">stream-json.Assembler.prototype.</span>_saveValue
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.Assembler.prototype.endArray">
+            function <span class="apidocSignatureSpan">stream-json.Assembler.prototype.</span>endArray
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.Assembler.prototype.endObject">
+            function <span class="apidocSignatureSpan">stream-json.Assembler.prototype.</span>endObject
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.Assembler.prototype.falseValue">
+            function <span class="apidocSignatureSpan">stream-json.Assembler.prototype.</span>falseValue
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.Assembler.prototype.keyValue">
+            function <span class="apidocSignatureSpan">stream-json.Assembler.prototype.</span>keyValue
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.Assembler.prototype.nullValue">
+            function <span class="apidocSignatureSpan">stream-json.Assembler.prototype.</span>nullValue
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.Assembler.prototype.numberValue">
+            function <span class="apidocSignatureSpan">stream-json.Assembler.prototype.</span>numberValue
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.Assembler.prototype.startArray">
+            function <span class="apidocSignatureSpan">stream-json.Assembler.prototype.</span>startArray
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.Assembler.prototype.startObject">
+            function <span class="apidocSignatureSpan">stream-json.Assembler.prototype.</span>startObject
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.Assembler.prototype.stringValue">
+            function <span class="apidocSignatureSpan">stream-json.Assembler.prototype.</span>stringValue
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.Assembler.prototype.trueValue">
+            function <span class="apidocSignatureSpan">stream-json.Assembler.prototype.</span>trueValue
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.stream-json.ClassicParser">module stream-json.ClassicParser</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.ClassicParser.ClassicParser">
+            function <span class="apidocSignatureSpan">stream-json.</span>ClassicParser
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.ClassicParser.super_">
+            function <span class="apidocSignatureSpan">stream-json.ClassicParser.</span>super_
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.stream-json.ClassicParser.prototype">module stream-json.ClassicParser.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.ClassicParser.prototype._flush">
+            function <span class="apidocSignatureSpan">stream-json.ClassicParser.prototype.</span>_flush
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.ClassicParser.prototype._processInput">
+            function <span class="apidocSignatureSpan">stream-json.ClassicParser.prototype.</span>_processInput
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.ClassicParser.prototype._transform">
+            function <span class="apidocSignatureSpan">stream-json.ClassicParser.prototype.</span>_transform
+            <span class="apidocSignatureSpan">(chunk, encoding, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.stream-json.Combo">module stream-json.Combo</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.Combo.Combo">
+            function <span class="apidocSignatureSpan">stream-json.</span>Combo
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.Combo.super_">
+            function <span class="apidocSignatureSpan">stream-json.Combo.</span>super_
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.stream-json.Combo.prototype">module stream-json.Combo.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.Combo.prototype._flush">
+            function <span class="apidocSignatureSpan">stream-json.Combo.prototype.</span>_flush
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.Combo.prototype._processInput">
+            function <span class="apidocSignatureSpan">stream-json.Combo.prototype.</span>_processInput
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.Combo.prototype._transform">
+            function <span class="apidocSignatureSpan">stream-json.Combo.prototype.</span>_transform
+            <span class="apidocSignatureSpan">(chunk, encoding, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.stream-json.Emitter">module stream-json.Emitter</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.Emitter.Emitter">
+            function <span class="apidocSignatureSpan">stream-json.</span>Emitter
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.Emitter.super_">
+            function <span class="apidocSignatureSpan">stream-json.Emitter.</span>super_
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.stream-json.Emitter.prototype">module stream-json.Emitter.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.Emitter.prototype._write">
+            function <span class="apidocSignatureSpan">stream-json.Emitter.prototype.</span>_write
+            <span class="apidocSignatureSpan">(chunk, encoding, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.stream-json.Filter">module stream-json.Filter</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.Filter.Filter">
+            function <span class="apidocSignatureSpan">stream-json.</span>Filter
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.Filter.super_">
+            function <span class="apidocSignatureSpan">stream-json.Filter.</span>super_
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.stream-json.Filter.prototype">module stream-json.Filter.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.Filter.prototype._allowAll">
+            function <span class="apidocSignatureSpan">stream-json.Filter.prototype.</span>_allowAll
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.Filter.prototype._flush">
+            function <span class="apidocSignatureSpan">stream-json.Filter.prototype.</span>_flush
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.Filter.prototype._pattern">
+            function <span class="apidocSignatureSpan">stream-json.Filter.prototype.</span>_pattern
+            <span class="apidocSignatureSpan">(path)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.Filter.prototype._sync">
+            function <span class="apidocSignatureSpan">stream-json.Filter.prototype.</span>_sync
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.Filter.prototype._transform">
+            function <span class="apidocSignatureSpan">stream-json.Filter.prototype.</span>_transform
+            <span class="apidocSignatureSpan">(chunk, encoding, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.stream-json.FilterObjects">module stream-json.FilterObjects</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.FilterObjects.FilterObjects">
+            function <span class="apidocSignatureSpan">stream-json.</span>FilterObjects
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.FilterObjects.super_">
+            function <span class="apidocSignatureSpan">stream-json.FilterObjects.</span>super_
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.stream-json.FilterObjects.prototype">module stream-json.FilterObjects.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.FilterObjects.prototype._transform">
+            function <span class="apidocSignatureSpan">stream-json.FilterObjects.prototype.</span>_transform
+            <span class="apidocSignatureSpan">(chunk, encoding, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.FilterObjects.prototype.setFilter">
+            function <span class="apidocSignatureSpan">stream-json.FilterObjects.prototype.</span>setFilter
+            <span class="apidocSignatureSpan">(newItemFilter)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.stream-json.Packer">module stream-json.Packer</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.Packer.Packer">
+            function <span class="apidocSignatureSpan">stream-json.</span>Packer
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.Packer.super_">
+            function <span class="apidocSignatureSpan">stream-json.Packer.</span>super_
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.stream-json.Packer.prototype">module stream-json.Packer.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.Packer.prototype._addToBuffer">
+            function <span class="apidocSignatureSpan">stream-json.Packer.prototype.</span>_addToBuffer
+            <span class="apidocSignatureSpan">(chunk)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.Packer.prototype._collectNumber">
+            function <span class="apidocSignatureSpan">stream-json.Packer.prototype.</span>_collectNumber
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.Packer.prototype._collectString">
+            function <span class="apidocSignatureSpan">stream-json.Packer.prototype.</span>_collectString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.Packer.prototype._sendKey">
+            function <span class="apidocSignatureSpan">stream-json.Packer.prototype.</span>_sendKey
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.Packer.prototype._sendNumber">
+            function <span class="apidocSignatureSpan">stream-json.Packer.prototype.</span>_sendNumber
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.Packer.prototype._sendString">
+            function <span class="apidocSignatureSpan">stream-json.Packer.prototype.</span>_sendString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.Packer.prototype._transform">
+            function <span class="apidocSignatureSpan">stream-json.Packer.prototype.</span>_transform
+            <span class="apidocSignatureSpan">(chunk, encoding, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.stream-json.Parser">module stream-json.Parser</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.Parser.Parser">
+            function <span class="apidocSignatureSpan">stream-json.</span>Parser
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.Parser.super_">
+            function <span class="apidocSignatureSpan">stream-json.Parser.</span>super_
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.stream-json.Parser.prototype">module stream-json.Parser.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.Parser.prototype._flush">
+            function <span class="apidocSignatureSpan">stream-json.Parser.prototype.</span>_flush
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.Parser.prototype._processInput">
+            function <span class="apidocSignatureSpan">stream-json.Parser.prototype.</span>_processInput
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.Parser.prototype._transform">
+            function <span class="apidocSignatureSpan">stream-json.Parser.prototype.</span>_transform
+            <span class="apidocSignatureSpan">(chunk, encoding, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.stream-json.Source">module stream-json.Source</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.Source.Source">
+            function <span class="apidocSignatureSpan">stream-json.</span>Source
+            <span class="apidocSignatureSpan">(streams)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.Source.super_">
+            function <span class="apidocSignatureSpan">stream-json.Source.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.stream-json.StreamArray">module stream-json.StreamArray</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.StreamArray.StreamArray">
+            function <span class="apidocSignatureSpan">stream-json.</span>StreamArray
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.StreamArray.make">
+            function <span class="apidocSignatureSpan">stream-json.StreamArray.</span>make
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.StreamArray.super_">
+            function <span class="apidocSignatureSpan">stream-json.StreamArray.</span>super_
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.stream-json.StreamArray.prototype">module stream-json.StreamArray.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.StreamArray.prototype._transform">
+            function <span class="apidocSignatureSpan">stream-json.StreamArray.prototype.</span>_transform
+            <span class="apidocSignatureSpan">(chunk, encoding, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.stream-json.StreamFilteredArray">module stream-json.StreamFilteredArray</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.StreamFilteredArray.StreamFilteredArray">
+            function <span class="apidocSignatureSpan">stream-json.</span>StreamFilteredArray
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.StreamFilteredArray.make">
+            function <span class="apidocSignatureSpan">stream-json.StreamFilteredArray.</span>make
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.StreamFilteredArray.super_">
+            function <span class="apidocSignatureSpan">stream-json.StreamFilteredArray.</span>super_
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.stream-json.StreamFilteredArray.prototype">module stream-json.StreamFilteredArray.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.StreamFilteredArray.prototype._doCheck">
+            function <span class="apidocSignatureSpan">stream-json.StreamFilteredArray.prototype.</span>_doCheck
+            <span class="apidocSignatureSpan">(chunk)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.StreamFilteredArray.prototype._skipCheck">
+            function <span class="apidocSignatureSpan">stream-json.StreamFilteredArray.prototype.</span>_skipCheck
+            <span class="apidocSignatureSpan">(chunk)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.StreamFilteredArray.prototype._skipObject">
+            function <span class="apidocSignatureSpan">stream-json.StreamFilteredArray.prototype.</span>_skipObject
+            <span class="apidocSignatureSpan">(chunk)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.StreamFilteredArray.prototype._transform">
+            function <span class="apidocSignatureSpan">stream-json.StreamFilteredArray.prototype.</span>_transform
+            <span class="apidocSignatureSpan">(chunk, encoding, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.stream-json.StreamObject">module stream-json.StreamObject</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.StreamObject.StreamObject">
+            function <span class="apidocSignatureSpan">stream-json.</span>StreamObject
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.StreamObject.make">
+            function <span class="apidocSignatureSpan">stream-json.StreamObject.</span>make
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.StreamObject.super_">
+            function <span class="apidocSignatureSpan">stream-json.StreamObject.</span>super_
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.stream-json.StreamObject.prototype">module stream-json.StreamObject.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.StreamObject.prototype._transform">
+            function <span class="apidocSignatureSpan">stream-json.StreamObject.prototype.</span>_transform
+            <span class="apidocSignatureSpan">(chunk, encoding, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.stream-json.Streamer">module stream-json.Streamer</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.Streamer.Streamer">
+            function <span class="apidocSignatureSpan">stream-json.</span>Streamer
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.Streamer.super_">
+            function <span class="apidocSignatureSpan">stream-json.Streamer.</span>super_
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.stream-json.Streamer.prototype">module stream-json.Streamer.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.Streamer.prototype._flush">
+            function <span class="apidocSignatureSpan">stream-json.Streamer.prototype.</span>_flush
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.Streamer.prototype._popState">
+            function <span class="apidocSignatureSpan">stream-json.Streamer.prototype.</span>_popState
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.Streamer.prototype._pushState">
+            function <span class="apidocSignatureSpan">stream-json.Streamer.prototype.</span>_pushState
+            <span class="apidocSignatureSpan">(state)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.Streamer.prototype._transform">
+            function <span class="apidocSignatureSpan">stream-json.Streamer.prototype.</span>_transform
+            <span class="apidocSignatureSpan">(chunk, encoding, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.stream-json.toString">module stream-json.toString</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stream-json.toString.toString">
+            function <span class="apidocSignatureSpan">stream-json.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.stream-json" id="apidoc.module.stream-json">module stream-json</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.stream-json" id="apidoc.element.stream-json.stream-json">
+        function <span class="apidocSignatureSpan"></span>stream-json
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function makeSource(options){
+	if(!options || !(&#x22;packKeys&#x22; in options || &#x22;packStrings&#x22; in options || &#x22;packNumbers&#x22; in options)){
+		options = options ? Object.create(options) : {};
+		options.packKeys = options.packStrings = options.packNumbers = true;
+	}
+	return new Source([new Combo(options)]);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.AltParser" id="apidoc.element.stream-json.AltParser">
+        function <span class="apidocSignatureSpan">stream-json.</span>AltParser
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Parser(options){
+	Transform.call(this, options);
+	this._writableState.objectMode = false;
+	this._readableState.objectMode = true;
+
+	this._state  = EXPECTING_VALUE;
+	this._parent = PARSING_NOTHING;
+	this._stack  = [];
+
+	this._literal = null;
+	this._literalFrom = 0;
+
+	this._stash = &#x22;&#x22;;
+	this._chunk = null;
+
+	this._line = this._pos = 1;
+	this._lastChar = &#x22;&#x22;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.Assembler" id="apidoc.element.stream-json.Assembler">
+        function <span class="apidocSignatureSpan">stream-json.</span>Assembler
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Assembler(){
+	this.stack = [];
+	this.current = this.key = null;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.ClassicParser" id="apidoc.element.stream-json.ClassicParser">
+        function <span class="apidocSignatureSpan">stream-json.</span>ClassicParser
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Parser(options){
+	Transform.call(this, options);
+	this._writableState.objectMode = false;
+	this._readableState.objectMode = true;
+
+	this._scanner = new Scanner();
+	this._parser  = new JsonParser(json);
+
+	var self = this;
+	this._parser.onToken = function onToken(token){
+		self.push(token);
+	};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.Combo" id="apidoc.element.stream-json.Combo">
+        function <span class="apidocSignatureSpan">stream-json.</span>Combo
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Parser(options){
+	Transform.call(this, options);
+	this._writableState.objectMode = false;
+	this._readableState.objectMode = true;
+
+	if(options){
+		this._packKeys    = options.packKeys;
+		this._packStrings = options.packStrings;
+		this._packNumbers = options.packNumbers;
+	}
+
+	this._buffer = &#x22;&#x22;;
+	this._done   = false;
+	this._expect = &#x22;value&#x22;;
+	this._stack  = [];
+	this._parent = &#x22;&#x22;;
+	this._open_number = false;
+	this._accumulator = &#x22;&#x22;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.Emitter" id="apidoc.element.stream-json.Emitter">
+        function <span class="apidocSignatureSpan">stream-json.</span>Emitter
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Emitter(options){
+	Writable.call(this, options);
+	this._writableState.objectMode = true;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.Filter" id="apidoc.element.stream-json.Filter">
+        function <span class="apidocSignatureSpan">stream-json.</span>Filter
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Filter(options){
+	Transform.call(this, options);
+	this._writableState.objectMode = true;
+	this._readableState.objectMode = true;
+
+	var f = options.filter;
+	if(typeof f == &#x22;function&#x22;){
+		this._func = f;
+	}else if(f instanceof RegExp){
+		this._regexp = f;
+		this._func = this._pattern;
+	}else{
+		this._func = this._allowAll;
+	}
+	this._separator = options.separator || &#x22;.&#x22;;
+
+	this._previous = [];
+	this._stack = [];
+	this._collectKey = false;
+	this._key = &#x22;&#x22;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.FilterObjects" id="apidoc.element.stream-json.FilterObjects">
+        function <span class="apidocSignatureSpan">stream-json.</span>FilterObjects
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function FilterObjects(options){
+	Transform.call(this, options);
+	this._writableState.objectMode = true;
+	this._readableState.objectMode = true;
+
+	this.itemFilter = options &#x26;&#x26; options.itemFilter;
+	if(typeof this.itemFilter != &#x22;function&#x22;){
+		this.itemFilter = defaultItemFilter;
+	}
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.Packer" id="apidoc.element.stream-json.Packer">
+        function <span class="apidocSignatureSpan">stream-json.</span>Packer
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Packer(options){
+	Transform.call(this, options);
+	this._writableState.objectMode = true;
+	this._readableState.objectMode = true;
+
+	this._eventMap = {};
+	this._buffer   = &#x22;&#x22;;
+
+	if(options.packKeys){
+		this._eventMap.startKey    = &#x22;_collectString&#x22;;
+		this._eventMap.endKey      = &#x22;_sendKey&#x22;;
+	}
+	if(options.packStrings){
+		this._eventMap.startString = &#x22;_collectString&#x22;;
+		this._eventMap.endString   = &#x22;_sendString&#x22;;
+	}
+	if(options.packNumbers){
+		this._eventMap.startNumber = &#x22;_collectNumber&#x22;;
+		this._eventMap.endNumber   = &#x22;_sendNumber&#x22;;
+	}
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.Parser" id="apidoc.element.stream-json.Parser">
+        function <span class="apidocSignatureSpan">stream-json.</span>Parser
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Parser(options){
+	Transform.call(this, options);
+	this._writableState.objectMode = false;
+	this._readableState.objectMode = true;
+
+	this._buffer = &#x22;&#x22;;
+	this._done   = false;
+	this._expect = &#x22;value&#x22;;
+	this._stack  = [];
+	this._parent = &#x22;&#x22;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.Source" id="apidoc.element.stream-json.Source">
+        function <span class="apidocSignatureSpan">stream-json.</span>Source
+        <span class="apidocSignatureSpan">(streams)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Source(streams){
+	EventEmitter.call(this);
+
+	if(!(streams instanceof Array) || !streams.length){
+		throw Error(&#x22;Source&#x27;s argument should be a non-empty array.&#x22;);
+	}
+
+	this.streams = streams;
+
+	// connect pipes
+	var input = this.input = streams[0], output = input;
+	streams.forEach(function(stream, index){
+		if(index){
+			output = output.pipe(stream);
+		}
+	});
+	this.output = output;
+
+	// connect events
+	var self = this;
+	output.on(&#x22;data&#x22;, function(item){
+		self.emit(item.name, item.value);
+	});
+	output.on(&#x22;end&#x22;, function(){
+		self.emit(&#x22;end&#x22;);
+	});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.StreamArray" id="apidoc.element.stream-json.StreamArray">
+        function <span class="apidocSignatureSpan">stream-json.</span>StreamArray
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function StreamArray(options){
+	Transform.call(this, options);
+	this._writableState.objectMode = true;
+	this._readableState.objectMode = true;
+
+	this._assembler = null;
+	this._counter = 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.StreamFilteredArray" id="apidoc.element.stream-json.StreamFilteredArray">
+        function <span class="apidocSignatureSpan">stream-json.</span>StreamFilteredArray
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function StreamFilteredArray(options){
+	Transform.call(this, options);
+	this._writableState.objectMode = true;
+	this._readableState.objectMode = true;
+
+	this.objectFilter = options &#x26;&#x26; options.objectFilter;
+	if(typeof this.objectFilter != &#x22;function&#x22;){
+		this.objectFilter = defaultObjectFilter;
+	}
+
+	this._processChunk = this._doCheck;
+	this._subObjectCounter = 0;
+
+	this._assembler = null;
+	this._counter = 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.StreamObject" id="apidoc.element.stream-json.StreamObject">
+        function <span class="apidocSignatureSpan">stream-json.</span>StreamObject
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function StreamObject(options){
+	Transform.call(this, options);
+	this._writableState.objectMode = true;
+	this._readableState.objectMode = true;
+
+	this._assembler = null;
+	this._lastKey = null;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.Streamer" id="apidoc.element.stream-json.Streamer">
+        function <span class="apidocSignatureSpan">stream-json.</span>Streamer
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Streamer(options){
+	Transform.call(this, options);
+	this._writableState.objectMode = true;
+	this._readableState.objectMode = true;
+
+	this._stack = [];
+	this._state = &#x22;&#x22;;
+	this._counter = 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.toString" id="apidoc.element.stream-json.toString">
+        function <span class="apidocSignatureSpan">stream-json.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toString = function () {
+    return text;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+	this._line = this._pos = 1;
+	this._lastChar = &#x22;&#x22;;
+}
+util.inherits(Parser, Transform);
+
+
+Parser.prototype._transform = function transform(chunk, encoding, callback){
+	var s = chunk.<span class="apidocCodeKeywordSpan">toString</span>(), i = 0, j, k, n = s.length;
+
+	main: do{
+		if(this._literal){
+			switch(this._literal){
+				case ESCAPED_CHAR:
+					switch(s[0]){
+						case &#x22;\&#x22;&#x22;: case &#x22;/&#x22;: case &#x22;b&#x22;: case &#x22;f&#x22;:
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.stream-json.AltParser" id="apidoc.module.stream-json.AltParser">module stream-json.AltParser</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.AltParser.AltParser" id="apidoc.element.stream-json.AltParser.AltParser">
+        function <span class="apidocSignatureSpan">stream-json.</span>AltParser
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Parser(options){
+	Transform.call(this, options);
+	this._writableState.objectMode = false;
+	this._readableState.objectMode = true;
+
+	this._state  = EXPECTING_VALUE;
+	this._parent = PARSING_NOTHING;
+	this._stack  = [];
+
+	this._literal = null;
+	this._literalFrom = 0;
+
+	this._stash = &#x22;&#x22;;
+	this._chunk = null;
+
+	this._line = this._pos = 1;
+	this._lastChar = &#x22;&#x22;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.AltParser.super_" id="apidoc.element.stream-json.AltParser.super_">
+        function <span class="apidocSignatureSpan">stream-json.AltParser.</span>super_
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Transform(options) {
+  if (!(this instanceof Transform))
+    return new Transform(options);
+
+  Duplex.call(this, options);
+
+  this._transformState = new TransformState(this);
+
+  var stream = this;
+
+  // start out asking for a readable event once data is transformed.
+  this._readableState.needReadable = true;
+
+  // we have implemented the _read method, and done the other things
+  // that Readable wants before the first _read call, so unset the
+  // sync guard flag.
+  this._readableState.sync = false;
+
+  if (options) {
+    if (typeof options.transform === &#x27;function&#x27;)
+      this._transform = options.transform;
+
+    if (typeof options.flush === &#x27;function&#x27;)
+      this._flush = options.flush;
+  }
+
+  // When the writable side finishes, then flush out anything remaining.
+  this.once(&#x27;prefinish&#x27;, function() {
+    if (typeof this._flush === &#x27;function&#x27;)
+      this._flush(function(er) {
+        done(stream, er);
+      });
+    else
+      done(stream);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.stream-json.AltParser.prototype" id="apidoc.module.stream-json.AltParser.prototype">module stream-json.AltParser.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.AltParser.prototype._flush" id="apidoc.element.stream-json.AltParser.prototype._flush">
+        function <span class="apidocSignatureSpan">stream-json.AltParser.prototype.</span>_flush
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function flush(callback){
+	switch(this._state){
+		// normal end
+		case EXPECTING_NOTHING:
+		// optional number parts
+		case EXPECTING_NUMBER_DIGIT:
+		case EXPECTING_FRACTION:
+		case EXPECTING_FRAC_DIGIT:
+		case EXPECTING_EXP_DIGIT:
+			callback();
+			return;
+	}
+	callback(new Error(&#x22;Parser didn&#x27;t finish, yet the stream has ended.&#x22;));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.AltParser.prototype._transform" id="apidoc.element.stream-json.AltParser.prototype._transform">
+        function <span class="apidocSignatureSpan">stream-json.AltParser.prototype.</span>_transform
+        <span class="apidocSignatureSpan">(chunk, encoding, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function transform(chunk, encoding, callback){
+	var s = chunk.toString(), i = 0, j, k, n = s.length;
+
+	main: do{
+		if(this._literal){
+			switch(this._literal){
+				case ESCAPED_CHAR:
+					switch(s[0]){
+						case &#x22;\&#x22;&#x22;: case &#x22;/&#x22;: case &#x22;b&#x22;: case &#x22;f&#x22;:
+						case &#x22;\\&#x22;: case &#x22;n&#x22;: case &#x22;r&#x22;: case &#x22;t&#x22;:
+							this.push({id: &#x22;escapedChars&#x22;, value: &#x22;\\&#x22; + s[0], line: this._line, pos: this._pos});
+							++i;
+							++this._pos;
+							break;
+						case &#x22;u&#x22;:
+							k = Math.min(5, n);
+							for(j = 1, ++i; i &#x3c; k; ++j, ++i){
+								if(!hex[s[i]]) {
+									return callback(new Error(&#x22;While matching hexadecimals encountered &#x27;&#x22; + s[i] + &#x22;&#x27;&#x22;));
+								}
+								this._stash += s[i];
+							}
+							if(j &#x3c; 5){
+								this._literal = HEXADECIMALS;
+								this._literalFrom = j;
+								break main;
+							}
+							this.push({id: &#x22;escapedChars&#x22;, value: &#x22;\\u&#x22; + this._stash, line: this._line, pos: this._pos});
+							this._stash = &#x22;&#x22;;
+							this._pos += 5;
+							break;
+						default:
+							return callback(new Error(&#x22;Wrong escaped symbol &#x27;&#x22; + c + &#x22;&#x27;&#x22;));
+					}
+					break;
+				case HEXADECIMALS:
+					k = Math.min(5 - this._literalFrom, n);
+					for(j = this._literalFrom; i &#x3c; k; ++j, ++i){
+						if(!hex[s[i]]) {
+							return callback(new Error(&#x22;While matching hexadecimals encountered &#x27;&#x22; + s[i] + &#x22;&#x27;&#x22;));
+						}
+						this._stash += s[i];
+					}
+					if(j &#x3c; 5){
+						this._literalFrom = j;
+						break main;
+					}
+					this.push({id: &#x22;escapedChars&#x22;, value: &#x22;\\u&#x22; + this._stash, line: this._line, pos: this._pos});
+					this._stash = &#x22;&#x22;;
+					this._pos += 5;
+					break;
+				default:
+					k = Math.min(this._literal.length - this._literalFrom, n);
+					for(j = this._literalFrom; i &#x3c; k; ++j, ++i){
+						if(this._literal[j] !== s[i]) {
+							return callback(new Error(&#x22;While matching &#x27;&#x22; + this._literal + &#x22;&#x27; encountered &#x27;&#x22; + s[j] + &#x22;&#x27; instead of &#x27;&#x22; + LITERAL_TRUE
+[j - i] + &#x22;&#x27;&#x22;));
+						}
+					}
+					if(j &#x3c; this._literal.length){
+						this._literalFrom = j;
+						break main;
+					}
+					this.push({id: this._literal, value: this._literal, line: this._line, pos: this._pos});
+					this._pos += this._literal.length;
+					// end of value
+					switch(this._parent){
+						case PARSING_OBJECT:
+							this._state = EXPECTING_OBJECT_STOP;
+							break;
+						case PARSING_ARRAY:
+							this._state = EXPECTING_ARRAY_STOP;
+							break;
+						default:
+							this._state = EXPECTING_NOTHING;
+							break;
+					}
+					break;
+			}
+			this._literal = null;
+		}
+
+		for(; i &#x3c; n; ++i, ++this._pos){
+			var c = s[i];
+			// calculate (line, pos)
+			switch(c){
+				case &#x22;\r&#x22;:
+					++this._line;
+					this._pos = 1;
+					break;
+				case &#x22;\n&#x22;:
+					if(this._lastChar !== &#x22;\r&#x22;){
+						++this._line;
+					}
+					this._pos = 1;
+					break;
+			}
+			this._lastChar = c;
+			// process a character
+			switch(this._state){
+				case EXPECTING_NOTHING:
+					switch(c){
+						case &#x22; &#x22;: case &#x22;\t&#x22;: case &#x22;\r&#x22;: case &#x22;\n&#x22;: // ws
+							if(this._chunk &#x26;&#x26; this._chunk.id !== &#x22;ws&#x22;){
+								this._chunk.value = s.substring(this._chunk.value, i);
+								this.push(this._chunk);
+								this._chunk = null;
+							}
+							if(!this._chunk){
+								this._chunk = {id: &#x22;ws&#x22;, value: i, line: this._line, pos: this._pos};
+							}
+							continue;
+						default:
+							return callback(new Error(&#x22;Expected whitespace&#x22;));
+					}
+					break;
+				case EXPECTING_VALUE:
+				case EXPECTING_ARRAY_FIRST:
+					switch(c){
+						case &#x22;{&#x22;: // object
+							if(this._chunk){
+								this._chunk.value = s.substring(this._chunk.value, i);
+								this.push(this._chunk);
+								this._chunk = null;
+							}
+							this.push({id: c, value: c, line: this._line, pos: this._pos});
+							this._state = EXPECTING_KEY_FIRST;
+							this._stack.push(this._parent);
+							this._parent = PARSING_OBJECT;
+							continue;
+						case &#x22;[&#x22;: // array
+							if(this._chunk){
+								this._chunk.value = s.substring(this._chunk.value, i);
+								this.push(this._chunk);
+								this._chunk = null;
+							}
+							this.push({id: c, value: c, line: this._line, pos: this._pos});
+							this._state = EXPECTING_ARRAY_FIRST;
+							this._stack.push(thi ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.stream-json.Assembler" id="apidoc.module.stream-json.Assembler">module stream-json.Assembler</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.Assembler.Assembler" id="apidoc.element.stream-json.Assembler.Assembler">
+        function <span class="apidocSignatureSpan">stream-json.</span>Assembler
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Assembler(){
+	this.stack = [];
+	this.current = this.key = null;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.stream-json.Assembler.prototype" id="apidoc.module.stream-json.Assembler.prototype">module stream-json.Assembler.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.Assembler.prototype._saveValue" id="apidoc.element.stream-json.Assembler.prototype._saveValue">
+        function <span class="apidocSignatureSpan">stream-json.Assembler.prototype.</span>_saveValue
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_saveValue = function (value){
+		if(this.current){
+			if(this.current instanceof Array){
+				this.current.push(value);
+			}else{
+				this.current[this.key] = value;
+				this.key = null;
+			}
+		}else{
+			this.current = value;
+		}
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+	startObject: startObject(Object),
+	endObject:   endObject,
+
+	keyValue:    function keyValue(value){ this.key = value; },
+
+	//stringValue: stringValue, // aliased below as _saveValue
+	numberValue: function(value){ this.<span class="apidocCodeKeywordSpan">_saveValue</span>(parseFloat(value)); },
+	nullValue:   function(){ this._saveValue(null); },
+	trueValue:   function(){ this._saveValue(true); },
+	falseValue:  function(){ this._saveValue(false); },
+
+	_saveValue: function(value){
+		if(this.current){
+			if(this.current instanceof Array){
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.Assembler.prototype.endArray" id="apidoc.element.stream-json.Assembler.prototype.endArray">
+        function <span class="apidocSignatureSpan">stream-json.Assembler.prototype.</span>endArray
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function endObject(){
+	if(this.stack.length){
+		var value = this.current;
+		this.key = this.stack.pop();
+		this.current = this.stack.pop();
+		this._saveValue(value);
+	}
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.Assembler.prototype.endObject" id="apidoc.element.stream-json.Assembler.prototype.endObject">
+        function <span class="apidocSignatureSpan">stream-json.Assembler.prototype.</span>endObject
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function endObject(){
+	if(this.stack.length){
+		var value = this.current;
+		this.key = this.stack.pop();
+		this.current = this.stack.pop();
+		this._saveValue(value);
+	}
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.Assembler.prototype.falseValue" id="apidoc.element.stream-json.Assembler.prototype.falseValue">
+        function <span class="apidocSignatureSpan">stream-json.Assembler.prototype.</span>falseValue
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">falseValue = function (){ this._saveValue(false); }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.Assembler.prototype.keyValue" id="apidoc.element.stream-json.Assembler.prototype.keyValue">
+        function <span class="apidocSignatureSpan">stream-json.Assembler.prototype.</span>keyValue
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function keyValue(value){ this.key = value; }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.Assembler.prototype.nullValue" id="apidoc.element.stream-json.Assembler.prototype.nullValue">
+        function <span class="apidocSignatureSpan">stream-json.Assembler.prototype.</span>nullValue
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">nullValue = function (){ this._saveValue(null); }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.Assembler.prototype.numberValue" id="apidoc.element.stream-json.Assembler.prototype.numberValue">
+        function <span class="apidocSignatureSpan">stream-json.Assembler.prototype.</span>numberValue
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">numberValue = function (value){ this._saveValue(parseFloat(value)); }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.Assembler.prototype.startArray" id="apidoc.element.stream-json.Assembler.prototype.startArray">
+        function <span class="apidocSignatureSpan">stream-json.Assembler.prototype.</span>startArray
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">startArray = function (){
+		if(this.current){
+			this.stack.push(this.current, this.key);
+		}
+		this.current = new Ctr();
+		this.key = null;
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.Assembler.prototype.startObject" id="apidoc.element.stream-json.Assembler.prototype.startObject">
+        function <span class="apidocSignatureSpan">stream-json.Assembler.prototype.</span>startObject
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">startObject = function (){
+		if(this.current){
+			this.stack.push(this.current, this.key);
+		}
+		this.current = new Ctr();
+		this.key = null;
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.Assembler.prototype.stringValue" id="apidoc.element.stream-json.Assembler.prototype.stringValue">
+        function <span class="apidocSignatureSpan">stream-json.Assembler.prototype.</span>stringValue
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">stringValue = function (value){
+		if(this.current){
+			if(this.current instanceof Array){
+				this.current.push(value);
+			}else{
+				this.current[this.key] = value;
+				this.key = null;
+			}
+		}else{
+			this.current = value;
+		}
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.Assembler.prototype.trueValue" id="apidoc.element.stream-json.Assembler.prototype.trueValue">
+        function <span class="apidocSignatureSpan">stream-json.Assembler.prototype.</span>trueValue
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">trueValue = function (){ this._saveValue(true); }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.stream-json.ClassicParser" id="apidoc.module.stream-json.ClassicParser">module stream-json.ClassicParser</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.ClassicParser.ClassicParser" id="apidoc.element.stream-json.ClassicParser.ClassicParser">
+        function <span class="apidocSignatureSpan">stream-json.</span>ClassicParser
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Parser(options){
+	Transform.call(this, options);
+	this._writableState.objectMode = false;
+	this._readableState.objectMode = true;
+
+	this._scanner = new Scanner();
+	this._parser  = new JsonParser(json);
+
+	var self = this;
+	this._parser.onToken = function onToken(token){
+		self.push(token);
+	};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.ClassicParser.super_" id="apidoc.element.stream-json.ClassicParser.super_">
+        function <span class="apidocSignatureSpan">stream-json.ClassicParser.</span>super_
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Transform(options) {
+  if (!(this instanceof Transform))
+    return new Transform(options);
+
+  Duplex.call(this, options);
+
+  this._transformState = new TransformState(this);
+
+  var stream = this;
+
+  // start out asking for a readable event once data is transformed.
+  this._readableState.needReadable = true;
+
+  // we have implemented the _read method, and done the other things
+  // that Readable wants before the first _read call, so unset the
+  // sync guard flag.
+  this._readableState.sync = false;
+
+  if (options) {
+    if (typeof options.transform === &#x27;function&#x27;)
+      this._transform = options.transform;
+
+    if (typeof options.flush === &#x27;function&#x27;)
+      this._flush = options.flush;
+  }
+
+  // When the writable side finishes, then flush out anything remaining.
+  this.once(&#x27;prefinish&#x27;, function() {
+    if (typeof this._flush === &#x27;function&#x27;)
+      this._flush(function(er) {
+        done(stream, er);
+      });
+    else
+      done(stream);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.stream-json.ClassicParser.prototype" id="apidoc.module.stream-json.ClassicParser.prototype">module stream-json.ClassicParser.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.ClassicParser.prototype._flush" id="apidoc.element.stream-json.ClassicParser.prototype._flush">
+        function <span class="apidocSignatureSpan">stream-json.ClassicParser.prototype.</span>_flush
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function flush(callback){
+	this._scanner.addBuffer(&#x22;&#x22;, true);
+	this._processInput(callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.ClassicParser.prototype._processInput" id="apidoc.element.stream-json.ClassicParser.prototype._processInput">
+        function <span class="apidocSignatureSpan">stream-json.ClassicParser.prototype.</span>_processInput
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function processInput(callback){
+	try{
+		if(this._expected === null){
+			throw Error(&#x22;Unexpected input after parser has finished.&#x22;);
+		}
+		if(typeof this._expected == &#x22;undefined&#x22;){
+			this._expected = this._parser.getExpectedState();
+		}
+		if(this._expected){
+			for(;;){
+				var token = this._scanner.getToken(this._expected);
+				if(token === true){
+					// need more input
+					break;
+				}
+				this._parser.putToken(token, this._scanner);
+				this._expected = this._parser.getExpectedState();
+				if(!this._expected){
+					// we are done
+					break;
+				}
+			}
+		}
+		if(this._expected === null &#x26;&#x26; !this._scanner.isFinished()){
+			throw Error(&#x22;Scanner has unprocessed symbols.&#x22;);
+		}
+	}catch(err){
+		callback(err);
+		return;
+	}
+	callback();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+		self.push(token);
+	};
+}
+util.inherits(Parser, Transform);
+
+Parser.prototype._transform = function transform(chunk, encoding, callback){
+	this._scanner.addBuffer(chunk.toString());
+	this.<span class="apidocCodeKeywordSpan">_processInput</span>(callback);
+};
+
+Parser.prototype._flush = function flush(callback){
+	this._scanner.addBuffer(&#x22;&#x22;, true);
+	this._processInput(callback);
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.ClassicParser.prototype._transform" id="apidoc.element.stream-json.ClassicParser.prototype._transform">
+        function <span class="apidocSignatureSpan">stream-json.ClassicParser.prototype.</span>_transform
+        <span class="apidocSignatureSpan">(chunk, encoding, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function transform(chunk, encoding, callback){
+	this._scanner.addBuffer(chunk.toString());
+	this._processInput(callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.stream-json.Combo" id="apidoc.module.stream-json.Combo">module stream-json.Combo</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.Combo.Combo" id="apidoc.element.stream-json.Combo.Combo">
+        function <span class="apidocSignatureSpan">stream-json.</span>Combo
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Parser(options){
+	Transform.call(this, options);
+	this._writableState.objectMode = false;
+	this._readableState.objectMode = true;
+
+	if(options){
+		this._packKeys    = options.packKeys;
+		this._packStrings = options.packStrings;
+		this._packNumbers = options.packNumbers;
+	}
+
+	this._buffer = &#x22;&#x22;;
+	this._done   = false;
+	this._expect = &#x22;value&#x22;;
+	this._stack  = [];
+	this._parent = &#x22;&#x22;;
+	this._open_number = false;
+	this._accumulator = &#x22;&#x22;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.Combo.super_" id="apidoc.element.stream-json.Combo.super_">
+        function <span class="apidocSignatureSpan">stream-json.Combo.</span>super_
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Transform(options) {
+  if (!(this instanceof Transform))
+    return new Transform(options);
+
+  Duplex.call(this, options);
+
+  this._transformState = new TransformState(this);
+
+  var stream = this;
+
+  // start out asking for a readable event once data is transformed.
+  this._readableState.needReadable = true;
+
+  // we have implemented the _read method, and done the other things
+  // that Readable wants before the first _read call, so unset the
+  // sync guard flag.
+  this._readableState.sync = false;
+
+  if (options) {
+    if (typeof options.transform === &#x27;function&#x27;)
+      this._transform = options.transform;
+
+    if (typeof options.flush === &#x27;function&#x27;)
+      this._flush = options.flush;
+  }
+
+  // When the writable side finishes, then flush out anything remaining.
+  this.once(&#x27;prefinish&#x27;, function() {
+    if (typeof this._flush === &#x27;function&#x27;)
+      this._flush(function(er) {
+        done(stream, er);
+      });
+    else
+      done(stream);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.stream-json.Combo.prototype" id="apidoc.module.stream-json.Combo.prototype">module stream-json.Combo.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.Combo.prototype._flush" id="apidoc.element.stream-json.Combo.prototype._flush">
+        function <span class="apidocSignatureSpan">stream-json.Combo.prototype.</span>_flush
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function flush(callback){
+	this._done = true;
+	this._processInput(function(err){
+		if(err){
+			callback(err);
+		}else{
+			if(this._open_number){
+				this.push({name: &#x22;endNumber&#x22;});
+				this._open_number = false;
+				if(this._packNumbers){
+					this.push({name: &#x22;numberValue&#x22;, value: this._accumulator});
+					this._accumulator = &#x22;&#x22;;
+				}
+			}
+			callback();
+		}
+	}.bind(this));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.Combo.prototype._processInput" id="apidoc.element.stream-json.Combo.prototype._processInput">
+        function <span class="apidocSignatureSpan">stream-json.Combo.prototype.</span>_processInput
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_processInput = function (callback){
+	var match, value;
+	main: for(;;){
+		switch(this._expect){
+			case &#x22;value1&#x22;:
+			case &#x22;value&#x22;:
+				match = value1.exec(this._buffer);
+				if(!match){
+					if(this._buffer){
+						if(this._done){
+							return callback(new Error(&#x22;Parser cannot parse input: expected a value&#x22;));
+						}
+					}
+					if(this._done){
+						return callback(new Error(&#x22;Parser has expected a value&#x22;));
+					}
+					// wait for more input
+					break main;
+				}
+				value = match[0];
+				switch(value){
+					case &#x22;\&#x22;&#x22;:
+						this.push({name: &#x22;startString&#x22;});
+						this._expect = &#x22;string&#x22;;
+						break;
+					case &#x22;{&#x22;:
+						this.push({name: &#x22;startObject&#x22;});
+						this._stack.push(this._parent);
+						this._parent = &#x22;object&#x22;;
+						this._expect = &#x22;key1&#x22;;
+						break;
+					case &#x22;[&#x22;:
+						this.push({name: &#x22;startArray&#x22;});
+						this._stack.push(this._parent);
+						this._parent = &#x22;array&#x22;;
+						this._expect = &#x22;value1&#x22;;
+						break;
+					case &#x22;]&#x22;:
+						if(this._expect !== &#x22;value1&#x22;){
+							return callback(new Error(&#x22;Parser cannot parse input: unexpected token &#x27;]&#x27;&#x22;));
+						}
+						if(this._open_number){
+							this.push({name: &#x22;endNumber&#x22;});
+							this._open_number = false;
+							if(this._packNumbers){
+								this.push({name: &#x22;numberValue&#x22;, value: this._accumulator});
+								this._accumulator = &#x22;&#x22;;
+							}
+						}
+						this.push({name: &#x22;endArray&#x22;});
+						this._parent = this._stack.pop();
+						this._expect = expected[this._parent];
+						break;
+					case &#x22;-&#x22;:
+						this._open_number = true;
+						this.push({name: &#x22;startNumber&#x22;});
+						this.push({name: &#x22;numberChunk&#x22;, value: &#x22;-&#x22;});
+						if(this._packNumbers){
+							this._accumulator = &#x22;-&#x22;;
+						}
+						this._expect = &#x22;numberStart&#x22;;
+						break;
+					case &#x22;0&#x22;:
+						this._open_number = true;
+						this.push({name: &#x22;startNumber&#x22;});
+						this.push({name: &#x22;numberChunk&#x22;, value: &#x22;0&#x22;});
+						if(this._packNumbers){
+							this._accumulator = &#x22;0&#x22;;
+						}
+						this._expect = &#x22;numberFraction&#x22;;
+						break;
+					case &#x22;1&#x22;:
+					case &#x22;2&#x22;:
+					case &#x22;3&#x22;:
+					case &#x22;4&#x22;:
+					case &#x22;5&#x22;:
+					case &#x22;6&#x22;:
+					case &#x22;7&#x22;:
+					case &#x22;8&#x22;:
+					case &#x22;9&#x22;:
+						this._open_number = true;
+						this.push({name: &#x22;startNumber&#x22;});
+						this.push({name: &#x22;numberChunk&#x22;, value: value});
+						if(this._packNumbers){
+							this._accumulator = value;
+						}
+						this._expect = &#x22;numberDigit&#x22;;
+						break;
+					case &#x22;true&#x22;:
+					case &#x22;false&#x22;:
+					case &#x22;null&#x22;:
+						if(this._buffer.length === value.length &#x26;&#x26; !this._done){
+							// wait for more input
+							break main;
+						}
+						this.push({name: value + &#x22;Value&#x22;, value: values[value]});
+						this._expect = expected[this._parent];
+						break;
+					// default: // ws
+				}
+				this._buffer = this._buffer.substring(value.length);
+				break;
+			case &#x22;keyVal&#x22;:
+			case &#x22;string&#x22;:
+				match = string.exec(this._buffer);
+				if(!match){
+					if(this._buffer){
+						if(this._done || this._buffer.length &#x3e;= 6){
+							return callback(new Error(&#x22;Parser cannot parse input: escaped characters&#x22;));
+						}
+					}
+					if(this._done){
+						return callback(new Error(&#x22;Parser has expected a string value&#x22;));
+					}
+					// wait for more input
+					break main;
+				}
+				value = match[0];
+				if(value === &#x22;\&#x22;&#x22;){
+					if(this._expect === &#x22;keyVal&#x22;){
+						this.push({name: &#x22;endKey&#x22;});
+						if(this._packKeys){
+							this.push({name: &#x22;keyValue&#x22;, value: this._accumulator});
+							this._accumulator = &#x22;&#x22;;
+						}
+						this._expect = &#x22;colon&#x22;;
+					}else{
+						this.push({name: &#x22;endString&#x22;});
+						if(this._packStrings){
+							this.push({name: &#x22;stringValue&#x22;, value: this._accumulator});
+							this._accumulator = &#x22;&#x22;;
+						}
+						this._expect = expected[this._parent];
+					}
+				}else if(value.length &#x3e; 1 &#x26;&#x26; value.charAt(0) === &#x22;\\&#x22;){
+					var t = value.length == 2 ? codes[value.charAt(1)] : fromHex(value);
+					this.push({name: &#x22;stringChunk&#x22;, value: t});
+					if(this._expect === &#x22;keyVal&#x22; ? this._packKeys : this._packStrings){
+						this._accumulator += t;
+					}
+				}else{
+					this.push({name: &#x22;stringChunk&#x22;, value: value});
+					if(this._expect === &#x22;keyVal&#x22; ? this._packKeys : this._pa ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+		self.push(token);
+	};
+}
+util.inherits(Parser, Transform);
+
+Parser.prototype._transform = function transform(chunk, encoding, callback){
+	this._scanner.addBuffer(chunk.toString());
+	this.<span class="apidocCodeKeywordSpan">_processInput</span>(callback);
+};
+
+Parser.prototype._flush = function flush(callback){
+	this._scanner.addBuffer(&#x22;&#x22;, true);
+	this._processInput(callback);
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.Combo.prototype._transform" id="apidoc.element.stream-json.Combo.prototype._transform">
+        function <span class="apidocSignatureSpan">stream-json.Combo.prototype.</span>_transform
+        <span class="apidocSignatureSpan">(chunk, encoding, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function transform(chunk, encoding, callback){
+	this._buffer += chunk.toString();
+	this._processInput(callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.stream-json.Emitter" id="apidoc.module.stream-json.Emitter">module stream-json.Emitter</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.Emitter.Emitter" id="apidoc.element.stream-json.Emitter.Emitter">
+        function <span class="apidocSignatureSpan">stream-json.</span>Emitter
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Emitter(options){
+	Writable.call(this, options);
+	this._writableState.objectMode = true;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.Emitter.super_" id="apidoc.element.stream-json.Emitter.super_">
+        function <span class="apidocSignatureSpan">stream-json.Emitter.</span>super_
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Writable(options) {
+  // Writable ctor is applied to Duplexes, too.
+  // `realHasInstance` is necessary because using plain `instanceof`
+  // would return false, as no `_writableState` property is attached.
+
+  // Trying to use the custom `instanceof` for Writable here will also break the
+  // Node.js LazyTransform implementation, which has a non-trivial getter for
+  // `_writableState` that would lead to infinite recursion.
+  if (!(realHasInstance.call(Writable, this)) &#x26;&#x26;
+      !(this instanceof Stream.Duplex)) {
+    return new Writable(options);
+  }
+
+  this._writableState = new WritableState(options, this);
+
+  // legacy.
+  this.writable = true;
+
+  if (options) {
+    if (typeof options.write === &#x27;function&#x27;)
+      this._write = options.write;
+
+    if (typeof options.writev === &#x27;function&#x27;)
+      this._writev = options.writev;
+  }
+
+  Stream.call(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.stream-json.Emitter.prototype" id="apidoc.module.stream-json.Emitter.prototype">module stream-json.Emitter.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.Emitter.prototype._write" id="apidoc.element.stream-json.Emitter.prototype._write">
+        function <span class="apidocSignatureSpan">stream-json.Emitter.prototype.</span>_write
+        <span class="apidocSignatureSpan">(chunk, encoding, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function write(chunk, encoding, callback){
+	this.emit(chunk.name, chunk.value);
+	callback();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.stream-json.Filter" id="apidoc.module.stream-json.Filter">module stream-json.Filter</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.Filter.Filter" id="apidoc.element.stream-json.Filter.Filter">
+        function <span class="apidocSignatureSpan">stream-json.</span>Filter
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Filter(options){
+	Transform.call(this, options);
+	this._writableState.objectMode = true;
+	this._readableState.objectMode = true;
+
+	var f = options.filter;
+	if(typeof f == &#x22;function&#x22;){
+		this._func = f;
+	}else if(f instanceof RegExp){
+		this._regexp = f;
+		this._func = this._pattern;
+	}else{
+		this._func = this._allowAll;
+	}
+	this._separator = options.separator || &#x22;.&#x22;;
+
+	this._previous = [];
+	this._stack = [];
+	this._collectKey = false;
+	this._key = &#x22;&#x22;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.Filter.super_" id="apidoc.element.stream-json.Filter.super_">
+        function <span class="apidocSignatureSpan">stream-json.Filter.</span>super_
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Transform(options) {
+  if (!(this instanceof Transform))
+    return new Transform(options);
+
+  Duplex.call(this, options);
+
+  this._transformState = new TransformState(this);
+
+  var stream = this;
+
+  // start out asking for a readable event once data is transformed.
+  this._readableState.needReadable = true;
+
+  // we have implemented the _read method, and done the other things
+  // that Readable wants before the first _read call, so unset the
+  // sync guard flag.
+  this._readableState.sync = false;
+
+  if (options) {
+    if (typeof options.transform === &#x27;function&#x27;)
+      this._transform = options.transform;
+
+    if (typeof options.flush === &#x27;function&#x27;)
+      this._flush = options.flush;
+  }
+
+  // When the writable side finishes, then flush out anything remaining.
+  this.once(&#x27;prefinish&#x27;, function() {
+    if (typeof this._flush === &#x27;function&#x27;)
+      this._flush(function(er) {
+        done(stream, er);
+      });
+    else
+      done(stream);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.stream-json.Filter.prototype" id="apidoc.module.stream-json.Filter.prototype">module stream-json.Filter.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.Filter.prototype._allowAll" id="apidoc.element.stream-json.Filter.prototype._allowAll">
+        function <span class="apidocSignatureSpan">stream-json.Filter.prototype.</span>_allowAll
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function allowAll(){
+	return true;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.Filter.prototype._flush" id="apidoc.element.stream-json.Filter.prototype._flush">
+        function <span class="apidocSignatureSpan">stream-json.Filter.prototype.</span>_flush
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function flush(callback){
+	this._stack = [];
+	this._sync();
+	callback();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.Filter.prototype._pattern" id="apidoc.element.stream-json.Filter.prototype._pattern">
+        function <span class="apidocSignatureSpan">stream-json.Filter.prototype.</span>_pattern
+        <span class="apidocSignatureSpan">(path)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function pattern(path){
+	return this._regexp.test(path.join(this._separator));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.Filter.prototype._sync" id="apidoc.element.stream-json.Filter.prototype._sync">
+        function <span class="apidocSignatureSpan">stream-json.Filter.prototype.</span>_sync
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function sync(){
+	var p = this._previous, pl = p.length,
+		s = this._stack, sl = s.length,
+		n = Math.min(pl, sl), i, j, value;
+	for(i = 0; i &#x3c; n &#x26;&#x26; p[i] === s[i]; ++i);
+	if(pl === sl &#x26;&#x26; i &#x3e;= n){
+		return;
+	}
+	for(j = pl - 1; j &#x3e; i; --j){
+		value = p[j];
+		this.push({name: typeof value == &#x22;number&#x22; ? &#x22;endArray&#x22; : &#x22;endObject&#x22;});
+	}
+	if(pl &#x3c;= i){
+		value = s[i];
+		this.push({name: typeof value == &#x22;number&#x22; ? &#x22;startArray&#x22; : &#x22;startObject&#x22;});
+	}
+	if(sl &#x3c;= i){
+		value = p[i];
+		this.push({name: typeof value == &#x22;number&#x22; ? &#x22;endArray&#x22; : &#x22;endObject&#x22;});
+	}
+	if(i &#x3c; sl){
+		value = s[i];
+		if(typeof value == &#x22;string&#x22;){
+			this.push({name: &#x22;startKey&#x22;});
+			this.push({name: &#x22;stringChunk&#x22;, value: value});
+			this.push({name: &#x22;endKey&#x22;});
+			this.push({name: &#x22;keyValue&#x22;, value: value});
+		}
+		for(j = i + 1; j &#x3c; sl; ++j){
+			value = s[j];
+			if(typeof value == &#x22;string&#x22;){
+				this.push({name: &#x22;startObject&#x22;});
+				this.push({name: &#x22;startKey&#x22;});
+				this.push({name: &#x22;stringChunk&#x22;, value: value});
+				this.push({name: &#x22;endKey&#x22;});
+				this.push({name: &#x22;keyValue&#x22;, value: value});
+			}else if(typeof value == &#x22;boolean&#x22;){
+				this.push({name: &#x22;startObject&#x22;});
+			}else{
+				this.push({name: &#x22;startArray&#x22;});
+			}
+		}
+	}
+	this._previous = s.slice(0);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+	}
+
+	// check if the chunk should be outputted
+	if(this._func(this._stack, chunk)){
+		switch(chunk.name){
+			case &#x22;startObject&#x22;:
+				this._stack.push(true);
+				this.<span class="apidocCodeKeywordSpan">_sync</span>();
+				break;
+			case &#x22;startArray&#x22;:
+				this._stack.push(0);
+				this._sync();
+				break;
+			case &#x22;endObject&#x22;:
+			case &#x22;endArray&#x22;:
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.Filter.prototype._transform" id="apidoc.element.stream-json.Filter.prototype._transform">
+        function <span class="apidocSignatureSpan">stream-json.Filter.prototype.</span>_transform
+        <span class="apidocSignatureSpan">(chunk, encoding, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function transform(chunk, encoding, callback){
+	// skip keys
+	if(this._collectKey){
+		if(chunk.name === &#x22;endKey&#x22;){
+			this._collectKey = false;
+			this._stack.pop();
+			this._stack.push(this._key);
+			this._key = &#x22;&#x22;;
+		}else{
+			this._key += chunk.value;
+		}
+		callback();
+		return;
+	}
+
+	switch(chunk.name){
+		case &#x22;startKey&#x22;:
+			this._collectKey = true;
+			// intentional fall down
+		case &#x22;keyValue&#x22;:
+			callback();
+			return;
+		case &#x22;endObject&#x22;:
+		case &#x22;endArray&#x22;:
+			this._stack.pop();
+			break;
+	}
+
+	// check if the chunk should be outputted
+	if(this._func(this._stack, chunk)){
+		switch(chunk.name){
+			case &#x22;startObject&#x22;:
+				this._stack.push(true);
+				this._sync();
+				break;
+			case &#x22;startArray&#x22;:
+				this._stack.push(0);
+				this._sync();
+				break;
+			case &#x22;endObject&#x22;:
+			case &#x22;endArray&#x22;:
+				this._sync();
+				break;
+			default:
+				this._sync();
+				this.push(chunk);
+				break;
+		}
+	}
+
+	// update stack
+	switch(chunk.name){
+		case &#x22;endObject&#x22;:
+		case &#x22;endArray&#x22;:
+		case &#x22;endString&#x22;:
+		case &#x22;endNumber&#x22;:
+		case &#x22;nullValue&#x22;:
+		case &#x22;trueValue&#x22;:
+		case &#x22;falseValue&#x22;:
+			// update array&#x27;s index
+			var index = this._stack.pop();
+			this._stack.push(typeof index == &#x22;number&#x22; ? index + 1 : index);
+			break;
+	}
+	callback();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.stream-json.FilterObjects" id="apidoc.module.stream-json.FilterObjects">module stream-json.FilterObjects</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.FilterObjects.FilterObjects" id="apidoc.element.stream-json.FilterObjects.FilterObjects">
+        function <span class="apidocSignatureSpan">stream-json.</span>FilterObjects
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function FilterObjects(options){
+	Transform.call(this, options);
+	this._writableState.objectMode = true;
+	this._readableState.objectMode = true;
+
+	this.itemFilter = options &#x26;&#x26; options.itemFilter;
+	if(typeof this.itemFilter != &#x22;function&#x22;){
+		this.itemFilter = defaultItemFilter;
+	}
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.FilterObjects.super_" id="apidoc.element.stream-json.FilterObjects.super_">
+        function <span class="apidocSignatureSpan">stream-json.FilterObjects.</span>super_
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Transform(options) {
+  if (!(this instanceof Transform))
+    return new Transform(options);
+
+  Duplex.call(this, options);
+
+  this._transformState = new TransformState(this);
+
+  var stream = this;
+
+  // start out asking for a readable event once data is transformed.
+  this._readableState.needReadable = true;
+
+  // we have implemented the _read method, and done the other things
+  // that Readable wants before the first _read call, so unset the
+  // sync guard flag.
+  this._readableState.sync = false;
+
+  if (options) {
+    if (typeof options.transform === &#x27;function&#x27;)
+      this._transform = options.transform;
+
+    if (typeof options.flush === &#x27;function&#x27;)
+      this._flush = options.flush;
+  }
+
+  // When the writable side finishes, then flush out anything remaining.
+  this.once(&#x27;prefinish&#x27;, function() {
+    if (typeof this._flush === &#x27;function&#x27;)
+      this._flush(function(er) {
+        done(stream, er);
+      });
+    else
+      done(stream);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.stream-json.FilterObjects.prototype" id="apidoc.module.stream-json.FilterObjects.prototype">module stream-json.FilterObjects.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.FilterObjects.prototype._transform" id="apidoc.element.stream-json.FilterObjects.prototype._transform">
+        function <span class="apidocSignatureSpan">stream-json.FilterObjects.prototype.</span>_transform
+        <span class="apidocSignatureSpan">(chunk, encoding, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function transform(chunk, encoding, callback){
+	if(this.itemFilter(chunk)){
+		this.push(chunk);
+	}
+	callback();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.FilterObjects.prototype.setFilter" id="apidoc.element.stream-json.FilterObjects.prototype.setFilter">
+        function <span class="apidocSignatureSpan">stream-json.FilterObjects.prototype.</span>setFilter
+        <span class="apidocSignatureSpan">(newItemFilter)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function setFilter(newItemFilter){
+	if(typeof newItemFilter != &#x22;function&#x22;){
+		newItemFilter = defaultItemFilter;
+	}
+	this.itemFilter = newItemFilter;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.stream-json.Packer" id="apidoc.module.stream-json.Packer">module stream-json.Packer</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.Packer.Packer" id="apidoc.element.stream-json.Packer.Packer">
+        function <span class="apidocSignatureSpan">stream-json.</span>Packer
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Packer(options){
+	Transform.call(this, options);
+	this._writableState.objectMode = true;
+	this._readableState.objectMode = true;
+
+	this._eventMap = {};
+	this._buffer   = &#x22;&#x22;;
+
+	if(options.packKeys){
+		this._eventMap.startKey    = &#x22;_collectString&#x22;;
+		this._eventMap.endKey      = &#x22;_sendKey&#x22;;
+	}
+	if(options.packStrings){
+		this._eventMap.startString = &#x22;_collectString&#x22;;
+		this._eventMap.endString   = &#x22;_sendString&#x22;;
+	}
+	if(options.packNumbers){
+		this._eventMap.startNumber = &#x22;_collectNumber&#x22;;
+		this._eventMap.endNumber   = &#x22;_sendNumber&#x22;;
+	}
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.Packer.super_" id="apidoc.element.stream-json.Packer.super_">
+        function <span class="apidocSignatureSpan">stream-json.Packer.</span>super_
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Transform(options) {
+  if (!(this instanceof Transform))
+    return new Transform(options);
+
+  Duplex.call(this, options);
+
+  this._transformState = new TransformState(this);
+
+  var stream = this;
+
+  // start out asking for a readable event once data is transformed.
+  this._readableState.needReadable = true;
+
+  // we have implemented the _read method, and done the other things
+  // that Readable wants before the first _read call, so unset the
+  // sync guard flag.
+  this._readableState.sync = false;
+
+  if (options) {
+    if (typeof options.transform === &#x27;function&#x27;)
+      this._transform = options.transform;
+
+    if (typeof options.flush === &#x27;function&#x27;)
+      this._flush = options.flush;
+  }
+
+  // When the writable side finishes, then flush out anything remaining.
+  this.once(&#x27;prefinish&#x27;, function() {
+    if (typeof this._flush === &#x27;function&#x27;)
+      this._flush(function(er) {
+        done(stream, er);
+      });
+    else
+      done(stream);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.stream-json.Packer.prototype" id="apidoc.module.stream-json.Packer.prototype">module stream-json.Packer.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.Packer.prototype._addToBuffer" id="apidoc.element.stream-json.Packer.prototype._addToBuffer">
+        function <span class="apidocSignatureSpan">stream-json.Packer.prototype.</span>_addToBuffer
+        <span class="apidocSignatureSpan">(chunk)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function addToBuffer(chunk){
+	this._buffer += chunk.value;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.Packer.prototype._collectNumber" id="apidoc.element.stream-json.Packer.prototype._collectNumber">
+        function <span class="apidocSignatureSpan">stream-json.Packer.prototype.</span>_collectNumber
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function collectNumber(){
+	this._eventMap.numberChunk = &#x22;_addToBuffer&#x22;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.Packer.prototype._collectString" id="apidoc.element.stream-json.Packer.prototype._collectString">
+        function <span class="apidocSignatureSpan">stream-json.Packer.prototype.</span>_collectString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function collectString(){
+	this._eventMap.stringChunk = &#x22;_addToBuffer&#x22;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.Packer.prototype._sendKey" id="apidoc.element.stream-json.Packer.prototype._sendKey">
+        function <span class="apidocSignatureSpan">stream-json.Packer.prototype.</span>_sendKey
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function sendKey(){
+	this.push({name: &#x22;keyValue&#x22;, value: this._buffer});
+	this._buffer = &#x22;&#x22;;
+	this._eventMap.stringChunk = null;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.Packer.prototype._sendNumber" id="apidoc.element.stream-json.Packer.prototype._sendNumber">
+        function <span class="apidocSignatureSpan">stream-json.Packer.prototype.</span>_sendNumber
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function sendNumber(){
+	this.push({name: &#x22;numberValue&#x22;, value: this._buffer});
+	this._buffer = &#x22;&#x22;;
+	this._eventMap.numberChunk = null;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.Packer.prototype._sendString" id="apidoc.element.stream-json.Packer.prototype._sendString">
+        function <span class="apidocSignatureSpan">stream-json.Packer.prototype.</span>_sendString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function sendString(){
+	this.push({name: &#x22;stringValue&#x22;, value: this._buffer});
+	this._buffer = &#x22;&#x22;;
+	this._eventMap.stringChunk = null;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.Packer.prototype._transform" id="apidoc.element.stream-json.Packer.prototype._transform">
+        function <span class="apidocSignatureSpan">stream-json.Packer.prototype.</span>_transform
+        <span class="apidocSignatureSpan">(chunk, encoding, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function transform(chunk, encoding, callback){
+	this.push(chunk);
+	if(this._eventMap[chunk.name]){
+		this[this._eventMap[chunk.name]](chunk);
+	}
+	callback();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.stream-json.Parser" id="apidoc.module.stream-json.Parser">module stream-json.Parser</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.Parser.Parser" id="apidoc.element.stream-json.Parser.Parser">
+        function <span class="apidocSignatureSpan">stream-json.</span>Parser
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Parser(options){
+	Transform.call(this, options);
+	this._writableState.objectMode = false;
+	this._readableState.objectMode = true;
+
+	this._buffer = &#x22;&#x22;;
+	this._done   = false;
+	this._expect = &#x22;value&#x22;;
+	this._stack  = [];
+	this._parent = &#x22;&#x22;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.Parser.super_" id="apidoc.element.stream-json.Parser.super_">
+        function <span class="apidocSignatureSpan">stream-json.Parser.</span>super_
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Transform(options) {
+  if (!(this instanceof Transform))
+    return new Transform(options);
+
+  Duplex.call(this, options);
+
+  this._transformState = new TransformState(this);
+
+  var stream = this;
+
+  // start out asking for a readable event once data is transformed.
+  this._readableState.needReadable = true;
+
+  // we have implemented the _read method, and done the other things
+  // that Readable wants before the first _read call, so unset the
+  // sync guard flag.
+  this._readableState.sync = false;
+
+  if (options) {
+    if (typeof options.transform === &#x27;function&#x27;)
+      this._transform = options.transform;
+
+    if (typeof options.flush === &#x27;function&#x27;)
+      this._flush = options.flush;
+  }
+
+  // When the writable side finishes, then flush out anything remaining.
+  this.once(&#x27;prefinish&#x27;, function() {
+    if (typeof this._flush === &#x27;function&#x27;)
+      this._flush(function(er) {
+        done(stream, er);
+      });
+    else
+      done(stream);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.stream-json.Parser.prototype" id="apidoc.module.stream-json.Parser.prototype">module stream-json.Parser.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.Parser.prototype._flush" id="apidoc.element.stream-json.Parser.prototype._flush">
+        function <span class="apidocSignatureSpan">stream-json.Parser.prototype.</span>_flush
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function flush(callback){
+	this._done = true;
+	this._processInput(callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.Parser.prototype._processInput" id="apidoc.element.stream-json.Parser.prototype._processInput">
+        function <span class="apidocSignatureSpan">stream-json.Parser.prototype.</span>_processInput
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_processInput = function (callback){
+	var match, value;
+	main: for(;;){
+		switch(this._expect){
+			case &#x22;value1&#x22;:
+			case &#x22;value&#x22;:
+				match = value1.exec(this._buffer);
+				if(!match){
+					if(this._buffer){
+						if(this._done){
+							return callback(new Error(&#x22;Parser cannot parse input: expected a value&#x22;));
+						}
+					}
+					if(this._done){
+						return callback(new Error(&#x22;Parser has expected a value&#x22;));
+					}
+					// wait for more input
+					break main;
+				}
+				value = match[0];
+				switch(value){
+					case &#x22;\&#x22;&#x22;:
+						this.push({id: value, value: value});
+						this._expect = &#x22;string&#x22;;
+						break;
+					case &#x22;{&#x22;:
+						this.push({id: value, value: value});
+						this._stack.push(this._parent);
+						this._parent = &#x22;object&#x22;;
+						this._expect = &#x22;key1&#x22;;
+						break;
+					case &#x22;[&#x22;:
+						this.push({id: value, value: value});
+						this._stack.push(this._parent);
+						this._parent = &#x22;array&#x22;;
+						this._expect = &#x22;value1&#x22;;
+						break;
+					case &#x22;]&#x22;:
+						if(this._expect !== &#x22;value1&#x22;){
+							return callback(new Error(&#x22;Parser cannot parse input: unexpected token &#x27;]&#x27;&#x22;));
+						}
+						this.push({id: value, value: value});
+						this._parent = this._stack.pop();
+						if(this._parent){
+							this._expect = this._parent === &#x22;object&#x22; ? &#x22;objectStop&#x22; : &#x22;arrayStop&#x22;;
+						}else{
+							this._expect = &#x22;done&#x22;;
+						}
+						break;
+					case &#x22;-&#x22;:
+						this.push({id: value, value: value});
+						this._expect = &#x22;numberStart&#x22;;
+						break;
+					case &#x22;0&#x22;:
+						this.push({id: value, value: value});
+						this._expect = &#x22;numberFraction&#x22;;
+						break;
+					case &#x22;1&#x22;:
+					case &#x22;2&#x22;:
+					case &#x22;3&#x22;:
+					case &#x22;4&#x22;:
+					case &#x22;5&#x22;:
+					case &#x22;6&#x22;:
+					case &#x22;7&#x22;:
+					case &#x22;8&#x22;:
+					case &#x22;9&#x22;:
+						this.push({id: &#x22;nonZero&#x22;, value: value});
+						this._expect = &#x22;numberDigit&#x22;;
+						break;
+					case &#x22;true&#x22;:
+					case &#x22;false&#x22;:
+					case &#x22;null&#x22;:
+						if(this._buffer.length === value.length &#x26;&#x26; !this._done){
+							// wait for more input
+							break main;
+						}
+						this.push({id: value, value: value});
+						if(this._parent){
+							this._expect = this._parent === &#x22;object&#x22; ? &#x22;objectStop&#x22; : &#x22;arrayStop&#x22;;
+						}else{
+							this._expect = &#x22;done&#x22;;
+						}
+						break;
+					// default: // ws
+				}
+				this._buffer = this._buffer.substring(value.length);
+				break;
+			case &#x22;keyVal&#x22;:
+			case &#x22;string&#x22;:
+				match = string.exec(this._buffer);
+				if(!match){
+					if(this._buffer){
+						if(this._done || this._buffer.length &#x3e;= 6){
+							return callback(new Error(&#x22;Parser cannot parse input: escaped characters&#x22;));
+						}
+					}
+					if(this._done){
+						return callback(new Error(&#x22;Parser has expected a string value&#x22;));
+					}
+					// wait for more input
+					break main;
+				}
+				value = match[0];
+				if(value === &#x22;\&#x22;&#x22;){
+					this.push({id: value, value: value});
+					if(this._expect === &#x22;keyVal&#x22;){
+						this._expect = &#x22;colon&#x22;;
+					}else{
+						if(this._parent){
+							this._expect = this._parent === &#x22;object&#x22; ? &#x22;objectStop&#x22; : &#x22;arrayStop&#x22;;
+						}else{
+							this._expect = &#x22;done&#x22;;
+						}
+					}
+				}else if(value.length &#x3e; 1 &#x26;&#x26; value.charAt(0) === &#x22;\\&#x22;){
+					this.push({id: &#x22;escapedChars&#x22;, value: value});
+				}else{
+					this.push({id: &#x22;plainChunk&#x22;, value: value});
+				}
+				this._buffer = this._buffer.substring(value.length);
+				break;
+			case &#x22;key1&#x22;:
+			case &#x22;key&#x22;:
+				match = key1.exec(this._buffer);
+				if(!match){
+					if(this._buffer || this._done){
+						return callback(new Error(&#x22;Parser cannot parse input: expected an object key&#x22;));
+					}
+					// wait for more input
+					break main;
+				}
+				value = match[0];
+				if(value === &#x22;\&#x22;&#x22;){
+					this.push({id: value, value: value});
+					this._expect = &#x22;keyVal&#x22;;
+				}else if(value === &#x22;}&#x22;){
+					if(this._expect !== &#x22;key1&#x22;){
+						return callback(new Error(&#x22;Parser cannot parse input: unexpected token &#x27;}&#x27;&#x22;));
+					}
+					this.push({id: value, value: value});
+					this._parent = this._stack.pop();
+					if(this._parent){
+						this._expect = this._parent === &#x22;object&#x22; ? &#x22;objectStop&#x22; : &#x22;arrayStop&#x22;;
+					}else{
+						this._expect = &#x22;done&#x22;;
+					}
+				}
+				this._buffer = this._buffer.substring(value.length); ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+		self.push(token);
+	};
+}
+util.inherits(Parser, Transform);
+
+Parser.prototype._transform = function transform(chunk, encoding, callback){
+	this._scanner.addBuffer(chunk.toString());
+	this.<span class="apidocCodeKeywordSpan">_processInput</span>(callback);
+};
+
+Parser.prototype._flush = function flush(callback){
+	this._scanner.addBuffer(&#x22;&#x22;, true);
+	this._processInput(callback);
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.Parser.prototype._transform" id="apidoc.element.stream-json.Parser.prototype._transform">
+        function <span class="apidocSignatureSpan">stream-json.Parser.prototype.</span>_transform
+        <span class="apidocSignatureSpan">(chunk, encoding, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function transform(chunk, encoding, callback){
+	this._buffer += chunk.toString();
+	this._processInput(callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.stream-json.Source" id="apidoc.module.stream-json.Source">module stream-json.Source</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.Source.Source" id="apidoc.element.stream-json.Source.Source">
+        function <span class="apidocSignatureSpan">stream-json.</span>Source
+        <span class="apidocSignatureSpan">(streams)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Source(streams){
+	EventEmitter.call(this);
+
+	if(!(streams instanceof Array) || !streams.length){
+		throw Error(&#x22;Source&#x27;s argument should be a non-empty array.&#x22;);
+	}
+
+	this.streams = streams;
+
+	// connect pipes
+	var input = this.input = streams[0], output = input;
+	streams.forEach(function(stream, index){
+		if(index){
+			output = output.pipe(stream);
+		}
+	});
+	this.output = output;
+
+	// connect events
+	var self = this;
+	output.on(&#x22;data&#x22;, function(item){
+		self.emit(item.name, item.value);
+	});
+	output.on(&#x22;end&#x22;, function(){
+		self.emit(&#x22;end&#x22;);
+	});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.Source.super_" id="apidoc.element.stream-json.Source.super_">
+        function <span class="apidocSignatureSpan">stream-json.Source.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function EventEmitter() {
+  EventEmitter.init.call(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.stream-json.StreamArray" id="apidoc.module.stream-json.StreamArray">module stream-json.StreamArray</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.StreamArray.StreamArray" id="apidoc.element.stream-json.StreamArray.StreamArray">
+        function <span class="apidocSignatureSpan">stream-json.</span>StreamArray
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function StreamArray(options){
+	Transform.call(this, options);
+	this._writableState.objectMode = true;
+	this._readableState.objectMode = true;
+
+	this._assembler = null;
+	this._counter = 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.StreamArray.make" id="apidoc.element.stream-json.StreamArray.make">
+        function <span class="apidocSignatureSpan">stream-json.StreamArray.</span>make
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function make(options){
+	var o = options ? Object.create(options) : {};
+	o.packKeys = o.packStrings = o.packNumbers = true;
+
+	var streams = [new Combo(o), new StreamArray(options)];
+
+	// connect pipes
+	var input = streams[0], output = input;
+	streams.forEach(function(stream, index){
+		if(index){
+			output = output.pipe(stream);
+		}
+	});
+
+	return {streams: streams, input: input, output: output};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+{index, value}
+```
+
+Where `index` is a numeric index in the array starting from 0, and `value` is a corresponding value. All objects are produced strictly
+ sequentially.
+
+```js
+var StreamArray = require(&#x22;stream-json/utils/StreamArray&#x22;);
+var stream = StreamArray.<span class="apidocCodeKeywordSpan">make</span>();
+
+// Example of use:
+
+stream.output.on(&#x22;data&#x22;, function(object){
+  console.log(object.index, object.value);
+});
+stream.output.on(&#x22;end&#x22;, function(){
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.StreamArray.super_" id="apidoc.element.stream-json.StreamArray.super_">
+        function <span class="apidocSignatureSpan">stream-json.StreamArray.</span>super_
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Transform(options) {
+  if (!(this instanceof Transform))
+    return new Transform(options);
+
+  Duplex.call(this, options);
+
+  this._transformState = new TransformState(this);
+
+  var stream = this;
+
+  // start out asking for a readable event once data is transformed.
+  this._readableState.needReadable = true;
+
+  // we have implemented the _read method, and done the other things
+  // that Readable wants before the first _read call, so unset the
+  // sync guard flag.
+  this._readableState.sync = false;
+
+  if (options) {
+    if (typeof options.transform === &#x27;function&#x27;)
+      this._transform = options.transform;
+
+    if (typeof options.flush === &#x27;function&#x27;)
+      this._flush = options.flush;
+  }
+
+  // When the writable side finishes, then flush out anything remaining.
+  this.once(&#x27;prefinish&#x27;, function() {
+    if (typeof this._flush === &#x27;function&#x27;)
+      this._flush(function(er) {
+        done(stream, er);
+      });
+    else
+      done(stream);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.stream-json.StreamArray.prototype" id="apidoc.module.stream-json.StreamArray.prototype">module stream-json.StreamArray.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.StreamArray.prototype._transform" id="apidoc.element.stream-json.StreamArray.prototype._transform">
+        function <span class="apidocSignatureSpan">stream-json.StreamArray.prototype.</span>_transform
+        <span class="apidocSignatureSpan">(chunk, encoding, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function transform(chunk, encoding, callback){
+	if(!this._assembler){
+		// first chunk should open an array
+		if(chunk.name !== &#x22;startArray&#x22;){
+			callback(new Error(&#x22;Top-level object should be an array.&#x22;));
+			return;
+		}
+		this._assembler = new Assembler();
+	}
+
+	this._assembler[chunk.name] &#x26;&#x26; this._assembler[chunk.name](chunk.value);
+
+	if(!this._assembler.stack.length &#x26;&#x26; this._assembler.current.length){
+		this.push({index: this._counter++, value: this._assembler.current.pop()});
+	}
+
+	callback();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.stream-json.StreamFilteredArray" id="apidoc.module.stream-json.StreamFilteredArray">module stream-json.StreamFilteredArray</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.StreamFilteredArray.StreamFilteredArray" id="apidoc.element.stream-json.StreamFilteredArray.StreamFilteredArray">
+        function <span class="apidocSignatureSpan">stream-json.</span>StreamFilteredArray
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function StreamFilteredArray(options){
+	Transform.call(this, options);
+	this._writableState.objectMode = true;
+	this._readableState.objectMode = true;
+
+	this.objectFilter = options &#x26;&#x26; options.objectFilter;
+	if(typeof this.objectFilter != &#x22;function&#x22;){
+		this.objectFilter = defaultObjectFilter;
+	}
+
+	this._processChunk = this._doCheck;
+	this._subObjectCounter = 0;
+
+	this._assembler = null;
+	this._counter = 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.StreamFilteredArray.make" id="apidoc.element.stream-json.StreamFilteredArray.make">
+        function <span class="apidocSignatureSpan">stream-json.StreamFilteredArray.</span>make
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function make(options){
+	var o = options ? Object.create(options) : {};
+	o.packKeys = o.packStrings = o.packNumbers = true;
+
+	var streams = [new Combo(o), new StreamFilteredArray(options)];
+
+	// connect pipes
+	var input = streams[0], output = input;
+	streams.forEach(function(stream, index){
+		if(index){
+			output = output.pipe(stream);
+		}
+	});
+
+	return {streams: streams, input: input, output: output};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+{index, value}
+```
+
+Where `index` is a numeric index in the array starting from 0, and `value` is a corresponding value. All objects are produced strictly
+ sequentially.
+
+```js
+var StreamArray = require(&#x22;stream-json/utils/StreamArray&#x22;);
+var stream = StreamArray.<span class="apidocCodeKeywordSpan">make</span>();
+
+// Example of use:
+
+stream.output.on(&#x22;data&#x22;, function(object){
+  console.log(object.index, object.value);
+});
+stream.output.on(&#x22;end&#x22;, function(){
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.StreamFilteredArray.super_" id="apidoc.element.stream-json.StreamFilteredArray.super_">
+        function <span class="apidocSignatureSpan">stream-json.StreamFilteredArray.</span>super_
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Transform(options) {
+  if (!(this instanceof Transform))
+    return new Transform(options);
+
+  Duplex.call(this, options);
+
+  this._transformState = new TransformState(this);
+
+  var stream = this;
+
+  // start out asking for a readable event once data is transformed.
+  this._readableState.needReadable = true;
+
+  // we have implemented the _read method, and done the other things
+  // that Readable wants before the first _read call, so unset the
+  // sync guard flag.
+  this._readableState.sync = false;
+
+  if (options) {
+    if (typeof options.transform === &#x27;function&#x27;)
+      this._transform = options.transform;
+
+    if (typeof options.flush === &#x27;function&#x27;)
+      this._flush = options.flush;
+  }
+
+  // When the writable side finishes, then flush out anything remaining.
+  this.once(&#x27;prefinish&#x27;, function() {
+    if (typeof this._flush === &#x27;function&#x27;)
+      this._flush(function(er) {
+        done(stream, er);
+      });
+    else
+      done(stream);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.stream-json.StreamFilteredArray.prototype" id="apidoc.module.stream-json.StreamFilteredArray.prototype">module stream-json.StreamFilteredArray.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.StreamFilteredArray.prototype._doCheck" id="apidoc.element.stream-json.StreamFilteredArray.prototype._doCheck">
+        function <span class="apidocSignatureSpan">stream-json.StreamFilteredArray.prototype.</span>_doCheck
+        <span class="apidocSignatureSpan">(chunk)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function doCheck(chunk){
+	if(!this._assembler[chunk.name]){
+		return;
+	}
+
+	this._assembler[chunk.name](chunk.value);
+
+	if(!this._assembler.stack.length){
+		if(this._assembler.current.length){
+			this.push({index: this._counter++, value: this._assembler.current.pop()});
+		}
+		return;
+	}
+
+	if(this._assembler.key === null &#x26;&#x26; this._assembler.stack.length){
+		var result = this.objectFilter(this._assembler);
+		if(result){
+			this._processChunk = this._skipCheck;
+		}else if(result === false){
+			this._processChunk = this._skipObject;
+		}
+	}
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.StreamFilteredArray.prototype._skipCheck" id="apidoc.element.stream-json.StreamFilteredArray.prototype._skipCheck">
+        function <span class="apidocSignatureSpan">stream-json.StreamFilteredArray.prototype.</span>_skipCheck
+        <span class="apidocSignatureSpan">(chunk)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function skipCheck(chunk){
+	if(!this._assembler[chunk.name]){
+		return;
+	}
+
+	this._assembler[chunk.name](chunk.value);
+
+	if(!this._assembler.stack.length &#x26;&#x26; this._assembler.current.length){
+		this.push({index: this._counter++, value: this._assembler.current.pop()});
+		this._processChunk = this._doCheck;
+	}
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.StreamFilteredArray.prototype._skipObject" id="apidoc.element.stream-json.StreamFilteredArray.prototype._skipObject">
+        function <span class="apidocSignatureSpan">stream-json.StreamFilteredArray.prototype.</span>_skipObject
+        <span class="apidocSignatureSpan">(chunk)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function skipObject(chunk){
+	switch(chunk.name){
+		case &#x22;startArray&#x22;:
+		case &#x22;startObject&#x22;:
+			++this._subObjectCounter;
+			return;
+		case &#x22;endArray&#x22;:
+		case &#x22;endObject&#x22;:
+			break;
+		default:
+			return;
+	}
+	if(this._subObjectCounter){
+		--this._subObjectCounter;
+		return;
+	}
+
+	this._assembler[chunk.name] &#x26;&#x26; this._assembler[chunk.name](chunk.value);
+
+	if(!this._assembler.stack.length &#x26;&#x26; this._assembler.current.length){
+		++this._counter;
+		this._assembler.current.pop();
+		this._processChunk = this._doCheck;
+	}
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.StreamFilteredArray.prototype._transform" id="apidoc.element.stream-json.StreamFilteredArray.prototype._transform">
+        function <span class="apidocSignatureSpan">stream-json.StreamFilteredArray.prototype.</span>_transform
+        <span class="apidocSignatureSpan">(chunk, encoding, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function transform(chunk, encoding, callback){
+	if(this._assembler){
+		this._processChunk(chunk);
+	}else{
+		// first chunk should open an array
+		if(chunk.name !== &#x22;startArray&#x22;){
+			callback(new Error(&#x22;Top-level object should be an array.&#x22;));
+			return;
+		}
+		this._assembler = new Assembler();
+		this._assembler[chunk.name] &#x26;&#x26; this._assembler[chunk.name](chunk.value);
+	}
+	callback();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.stream-json.StreamObject" id="apidoc.module.stream-json.StreamObject">module stream-json.StreamObject</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.StreamObject.StreamObject" id="apidoc.element.stream-json.StreamObject.StreamObject">
+        function <span class="apidocSignatureSpan">stream-json.</span>StreamObject
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function StreamObject(options){
+	Transform.call(this, options);
+	this._writableState.objectMode = true;
+	this._readableState.objectMode = true;
+
+	this._assembler = null;
+	this._lastKey = null;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.StreamObject.make" id="apidoc.element.stream-json.StreamObject.make">
+        function <span class="apidocSignatureSpan">stream-json.StreamObject.</span>make
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function make(options){
+	var o = options ? Object.create(options) : {};
+	o.packKeys = o.packStrings = o.packNumbers = true;
+
+	var streams = [new Combo(o), new StreamObject(options)];
+
+	// connect pipes
+	var input = streams[0], output = input;
+	streams.forEach(function(stream, index){
+		if(index){
+			output = output.pipe(stream);
+		}
+	});
+
+	return {streams: streams, input: input, output: output};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+{index, value}
+```
+
+Where `index` is a numeric index in the array starting from 0, and `value` is a corresponding value. All objects are produced strictly
+ sequentially.
+
+```js
+var StreamArray = require(&#x22;stream-json/utils/StreamArray&#x22;);
+var stream = StreamArray.<span class="apidocCodeKeywordSpan">make</span>();
+
+// Example of use:
+
+stream.output.on(&#x22;data&#x22;, function(object){
+  console.log(object.index, object.value);
+});
+stream.output.on(&#x22;end&#x22;, function(){
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.StreamObject.super_" id="apidoc.element.stream-json.StreamObject.super_">
+        function <span class="apidocSignatureSpan">stream-json.StreamObject.</span>super_
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Transform(options) {
+  if (!(this instanceof Transform))
+    return new Transform(options);
+
+  Duplex.call(this, options);
+
+  this._transformState = new TransformState(this);
+
+  var stream = this;
+
+  // start out asking for a readable event once data is transformed.
+  this._readableState.needReadable = true;
+
+  // we have implemented the _read method, and done the other things
+  // that Readable wants before the first _read call, so unset the
+  // sync guard flag.
+  this._readableState.sync = false;
+
+  if (options) {
+    if (typeof options.transform === &#x27;function&#x27;)
+      this._transform = options.transform;
+
+    if (typeof options.flush === &#x27;function&#x27;)
+      this._flush = options.flush;
+  }
+
+  // When the writable side finishes, then flush out anything remaining.
+  this.once(&#x27;prefinish&#x27;, function() {
+    if (typeof this._flush === &#x27;function&#x27;)
+      this._flush(function(er) {
+        done(stream, er);
+      });
+    else
+      done(stream);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.stream-json.StreamObject.prototype" id="apidoc.module.stream-json.StreamObject.prototype">module stream-json.StreamObject.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.StreamObject.prototype._transform" id="apidoc.element.stream-json.StreamObject.prototype._transform">
+        function <span class="apidocSignatureSpan">stream-json.StreamObject.prototype.</span>_transform
+        <span class="apidocSignatureSpan">(chunk, encoding, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function transform(chunk, encoding, callback){
+	if(!this._assembler){
+		// first chunk should open an object
+		if(chunk.name !== &#x22;startObject&#x22;){
+			callback(new Error(&#x22;Top-level construct should be an object.&#x22;));
+			return;
+		}
+		this._assembler = new Assembler();
+	}
+
+	this._assembler[chunk.name] &#x26;&#x26; this._assembler[chunk.name](chunk.value);
+
+	if(!this._assembler.stack.length){
+		if(this._assembler.key === null){
+			if(this._lastKey !== null){
+				this.push({key: this._lastKey, value: this._assembler.current[this._lastKey]});
+				delete this._assembler.current[this._lastKey];
+				this._lastKey = null;
+			}
+		}else{
+			this._lastKey = this._assembler.key;
+		}
+	}
+
+	callback();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.stream-json.Streamer" id="apidoc.module.stream-json.Streamer">module stream-json.Streamer</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.Streamer.Streamer" id="apidoc.element.stream-json.Streamer.Streamer">
+        function <span class="apidocSignatureSpan">stream-json.</span>Streamer
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Streamer(options){
+	Transform.call(this, options);
+	this._writableState.objectMode = true;
+	this._readableState.objectMode = true;
+
+	this._stack = [];
+	this._state = &#x22;&#x22;;
+	this._counter = 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.Streamer.super_" id="apidoc.element.stream-json.Streamer.super_">
+        function <span class="apidocSignatureSpan">stream-json.Streamer.</span>super_
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Transform(options) {
+  if (!(this instanceof Transform))
+    return new Transform(options);
+
+  Duplex.call(this, options);
+
+  this._transformState = new TransformState(this);
+
+  var stream = this;
+
+  // start out asking for a readable event once data is transformed.
+  this._readableState.needReadable = true;
+
+  // we have implemented the _read method, and done the other things
+  // that Readable wants before the first _read call, so unset the
+  // sync guard flag.
+  this._readableState.sync = false;
+
+  if (options) {
+    if (typeof options.transform === &#x27;function&#x27;)
+      this._transform = options.transform;
+
+    if (typeof options.flush === &#x27;function&#x27;)
+      this._flush = options.flush;
+  }
+
+  // When the writable side finishes, then flush out anything remaining.
+  this.once(&#x27;prefinish&#x27;, function() {
+    if (typeof this._flush === &#x27;function&#x27;)
+      this._flush(function(er) {
+        done(stream, er);
+      });
+    else
+      done(stream);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.stream-json.Streamer.prototype" id="apidoc.module.stream-json.Streamer.prototype">module stream-json.Streamer.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.Streamer.prototype._flush" id="apidoc.element.stream-json.Streamer.prototype._flush">
+        function <span class="apidocSignatureSpan">stream-json.Streamer.prototype.</span>_flush
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function flush(callback){
+	if(this._state === &#x22;number&#x22;){
+		this.push({name: &#x22;endNumber&#x22;});
+	}
+	callback();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.Streamer.prototype._popState" id="apidoc.element.stream-json.Streamer.prototype._popState">
+        function <span class="apidocSignatureSpan">stream-json.Streamer.prototype.</span>_popState
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function popState(){
+	var frame     = this._stack.pop();
+	this._state   = frame.state;
+	this._counter = frame.counter + 1;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+		case &#x22;{&#x22;: // object starts
+			this.push({name: &#x22;startObject&#x22;});
+			this._pushState(&#x22;object&#x22;);
+			break;
+		case &#x22;}&#x22;: // object ends
+			if(this._state === &#x22;number&#x22;){
+				this.push({name: &#x22;endNumber&#x22;});
+				this.<span class="apidocCodeKeywordSpan">_popState</span>();
+			}
+			this.push({name: &#x22;endObject&#x22;});
+			this._popState();
+			break;
+		case &#x22;[&#x22;: // array starts
+			this.push({name: &#x22;startArray&#x22;});
+			this._pushState(&#x22;array&#x22;);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.Streamer.prototype._pushState" id="apidoc.element.stream-json.Streamer.prototype._pushState">
+        function <span class="apidocSignatureSpan">stream-json.Streamer.prototype.</span>_pushState
+        <span class="apidocSignatureSpan">(state)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function pushState(state){
+	this._stack.push({state: this._state, counter: this._counter});
+	this._state   = state;
+	this._counter = 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+util.inherits(Streamer, Transform);
+
+Streamer.prototype._transform = function transform(chunk, encoding, callback){
+	switch(chunk.id){
+		case &#x22;{&#x22;: // object starts
+			this.push({name: &#x22;startObject&#x22;});
+			this.<span class="apidocCodeKeywordSpan">_pushState</span>(&#x22;object&#x22;);
+			break;
+		case &#x22;}&#x22;: // object ends
+			if(this._state === &#x22;number&#x22;){
+				this.push({name: &#x22;endNumber&#x22;});
+				this._popState();
+			}
+			this.push({name: &#x22;endObject&#x22;});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.Streamer.prototype._transform" id="apidoc.element.stream-json.Streamer.prototype._transform">
+        function <span class="apidocSignatureSpan">stream-json.Streamer.prototype.</span>_transform
+        <span class="apidocSignatureSpan">(chunk, encoding, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function transform(chunk, encoding, callback){
+	switch(chunk.id){
+		case &#x22;{&#x22;: // object starts
+			this.push({name: &#x22;startObject&#x22;});
+			this._pushState(&#x22;object&#x22;);
+			break;
+		case &#x22;}&#x22;: // object ends
+			if(this._state === &#x22;number&#x22;){
+				this.push({name: &#x22;endNumber&#x22;});
+				this._popState();
+			}
+			this.push({name: &#x22;endObject&#x22;});
+			this._popState();
+			break;
+		case &#x22;[&#x22;: // array starts
+			this.push({name: &#x22;startArray&#x22;});
+			this._pushState(&#x22;array&#x22;);
+			break;
+		case &#x22;]&#x22;: // array ends
+			if(this._state === &#x22;number&#x22;){
+				this.push({name: &#x22;endNumber&#x22;});
+				this._popState();
+			}
+			this.push({name: &#x22;endArray&#x22;});
+			this._popState();
+			break;
+		case &#x22;\&#x22;&#x22;: // string starts/ends
+			if(this._state === &#x22;string&#x22;){
+				this._popState();
+				this.push({name: this._state === &#x22;object&#x22; &#x26;&#x26;
+					this._counter % 2 ? &#x22;endKey&#x22; : &#x22;endString&#x22;});
+			}else{
+				this.push({name: this._state === &#x22;object&#x22; &#x26;&#x26;
+					!(this._counter % 2) ? &#x22;startKey&#x22; : &#x22;startString&#x22;});
+				this._pushState(&#x22;string&#x22;);
+			}
+			break;
+		case &#x22;null&#x22;: // null
+			this.push({name: &#x22;nullValue&#x22;, value: null});
+			++this._counter;
+			break;
+		case &#x22;true&#x22;: // true
+			this.push({name: &#x22;trueValue&#x22;, value: true});
+			++this._counter;
+			break;
+		case &#x22;false&#x22;: // false
+			this.push({name: &#x22;falseValue&#x22;, value: false});
+			++this._counter;
+			break;
+		case &#x22;0&#x22;: // number and its fragments
+		case &#x22;+&#x22;:
+		case &#x22;-&#x22;:
+		case &#x22;.&#x22;:
+		case &#x22;nonZero&#x22;:
+		case &#x22;numericChunk&#x22;:
+		case &#x22;exponent&#x22;:
+			if(this._state !== &#x22;number&#x22;){
+				this.push({name: &#x22;startNumber&#x22;});
+				this._pushState(&#x22;number&#x22;);
+			}
+			this.push({name: &#x22;numberChunk&#x22;, value: chunk.value});
+			break;
+		case &#x22;plainChunk&#x22;: // string fragments
+			this.push({name: &#x22;stringChunk&#x22;, value: chunk.value});
+			break;
+		case &#x22;escapedChars&#x22;:
+			this.push({name: &#x22;stringChunk&#x22;, value:
+				chunk.value.length == 2 ? codes[chunk.value.charAt(1)] : fromHex(chunk.value)});
+			break;
+		default: // white space, punctuations
+			if(this._state === &#x22;number&#x22;){
+				this.push({name: &#x22;endNumber&#x22;});
+				this._popState();
+			}
+			break;
+	}
+	callback();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.stream-json.toString" id="apidoc.module.stream-json.toString">module stream-json.toString</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.stream-json.toString.toString" id="apidoc.element.stream-json.toString.toString">
+        function <span class="apidocSignatureSpan">stream-json.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function toString() { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+	this._line = this._pos = 1;
+	this._lastChar = &#x22;&#x22;;
+}
+util.inherits(Parser, Transform);
+
+
+Parser.prototype._transform = function transform(chunk, encoding, callback){
+	var s = chunk.<span class="apidocCodeKeywordSpan">toString</span>(), i = 0, j, k, n = s.length;
+
+	main: do{
+		if(this._literal){
+			switch(this._literal){
+				case ESCAPED_CHAR:
+					switch(s[0]){
+						case &#x22;\&#x22;&#x22;: case &#x22;/&#x22;: case &#x22;b&#x22;: case &#x22;f&#x22;:
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
