@@ -191,15 +191,6 @@
 
         <li>
 
-            <a class="apidocElementLiA" href="#apidoc.element.stream-json.toString">
-            function <span class="apidocSignatureSpan">stream-json.</span>toString
-            <span class="apidocSignatureSpan">()</span>
-            </a>
-
-        </li>
-
-        <li>
-
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">stream-json.</span>AltParser.prototype</span>
 
         </li>
@@ -1079,19 +1070,6 @@
 
     </ol></li>
 
-    <li class="apidocModuleLi"><a href="#apidoc.module.stream-json.toString">module stream-json.toString</a><ol>
-
-        <li>
-
-            <a class="apidocElementLiA" href="#apidoc.element.stream-json.toString.toString">
-            function <span class="apidocSignatureSpan">stream-json.</span>toString
-            <span class="apidocSignatureSpan">()</span>
-            </a>
-
-        </li>
-
-    </ol></li>
-
 </ol></div>
 
 <div class="apidocSectionDiv">
@@ -1470,37 +1448,6 @@
 	this._counter = 0;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
-    </ul>
-
-
-
-    <h2>
-        <a href="#apidoc.element.stream-json.toString" id="apidoc.element.stream-json.toString">
-        function <span class="apidocSignatureSpan">stream-json.</span>toString
-        <span class="apidocSignatureSpan">()</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">toString = function () {
-    return text;
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-	this._line = this._pos = 1;
-	this._lastChar = "";
-}
-util.inherits(Parser, Transform);
-
-
-Parser.prototype._transform = function transform(chunk, encoding, callback){
-	var s = chunk.<span class="apidocCodeKeywordSpan">toString</span>(), i = 0, j, k, n = s.length;
-
-	main: do{
-		if(this._literal){
-			switch(this._literal){
-				case ESCAPED_CHAR:
-					switch(s[0]){
-						case "\"": case "/": case "b": case "f":
-...</pre></li>
     </ul>
 
 
@@ -4364,40 +4311,6 @@ Streamer.prototype._transform = function transform(chunk, encoding, callback){
 	callback();
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
-    </ul>
-
-
-</div>
-
-<div class="apidocSectionDiv">
-<h1><a href="#apidoc.module.stream-json.toString" id="apidoc.module.stream-json.toString">module stream-json.toString</a></h1>
-
-
-    <h2>
-        <a href="#apidoc.element.stream-json.toString.toString" id="apidoc.element.stream-json.toString.toString">
-        function <span class="apidocSignatureSpan">stream-json.</span>toString
-        <span class="apidocSignatureSpan">()</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">function toString() { [native code] }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-	this._line = this._pos = 1;
-	this._lastChar = "";
-}
-util.inherits(Parser, Transform);
-
-
-Parser.prototype._transform = function transform(chunk, encoding, callback){
-	var s = chunk.<span class="apidocCodeKeywordSpan">toString</span>(), i = 0, j, k, n = s.length;
-
-	main: do{
-		if(this._literal){
-			switch(this._literal){
-				case ESCAPED_CHAR:
-					switch(s[0]){
-						case "\"": case "/": case "b": case "f":
-...</pre></li>
     </ul>
 
 
