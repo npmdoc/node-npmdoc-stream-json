@@ -1,4 +1,7 @@
-# api documentation for  [stream-json (v0.4.2)](http://github.com/uhop/stream-json)  [![npm package](https://img.shields.io/npm/v/npmdoc-stream-json.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-stream-json) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-stream-json.svg)](https://travis-ci.org/npmdoc/node-npmdoc-stream-json)
+# npmdoc-stream-json
+
+#### api documentation for  [stream-json (v0.4.2)](http://github.com/uhop/stream-json)  [![npm package](https://img.shields.io/npm/v/npmdoc-stream-json.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-stream-json) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-stream-json.svg)](https://travis-ci.org/npmdoc/node-npmdoc-stream-json)
+
 #### stream-json is a SAX-inspired stream components with a minimal memory footprint to parse huge JSON files. Includes utilities to stream Django-like JSON database dumps.
 
 [![NPM](https://nodei.co/npm/stream-json.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/stream-json)
